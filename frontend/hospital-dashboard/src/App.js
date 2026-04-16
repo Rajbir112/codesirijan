@@ -5,6 +5,7 @@ import InventoryDashboard from './components/InventoryDashboard';
 import DoctorManager from './components/DoctorManager';
 import DoctorList from './components/DoctorList';
 import AdmissionPage from './components/AdmissionPage';
+import EquipmentInventory from './components/EquipmentInventory';
 
 const NAV = [
     { id: 'facility', label: '🏗️ Facility Capacity', color: '#3b82f6' },
@@ -66,6 +67,7 @@ function App() {
                         <CapacityManager onCapacityAdded={triggerRefresh} />
                         <InventoryDashboard refreshTrigger={refresh} />
                     </div>
+                    <EquipmentInventory />
                 </>
             )}
 

@@ -72,6 +72,31 @@ export const addNurseProfile = async (data) => {
     return res.text();
 };
 
+// ─── Equipment Inventory ──────────────────────────────────
+const EQ_API = `${BASE}/equipment`;
+
+export const fetchEquipment = async () => {
+    const res = await fetch(EQ_API);
+    if (!res.ok) throw new Error('Failed to fetch equipment');
+    return res.json();
+};
+
+export const saveEquipment = async (entries) => {
+    const res = await fetch(`${EQ_API}/save`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(entries)
+    });
+    if (!res.ok) throw new Error('Failed to save equipment');
+    return res.text();
+};
+
+export const deleteEquipmentItem = async (id) => {
+    const res = await fetch(`${EQ_API}/${id}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error('Failed to delete equipment');
+    return res.text();
+};
+
 // ─── Admissions (hierarchical) ────────────────────────────
 const ADM_API = `${BASE}/admissions`;
 
