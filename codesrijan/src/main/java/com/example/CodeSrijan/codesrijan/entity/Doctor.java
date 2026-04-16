@@ -22,6 +22,9 @@ public class Doctor {
     @JoinColumn(name = "category_id", nullable = false)
     private DoctorCategory category;
 
+    @Column(name = "is_available")
+    private Boolean isAvailable = true;
+
     public Doctor() {}
 
     public Doctor(String name, String education, Integer experienceYears, DoctorCategory category) {
@@ -45,4 +48,7 @@ public class Doctor {
 
     public DoctorCategory getCategory() { return category; }
     public void setCategory(DoctorCategory category) { this.category = category; }
+
+    public Boolean getIsAvailable() { return isAvailable == null || isAvailable; }
+    public void setIsAvailable(Boolean isAvailable) { this.isAvailable = isAvailable; }
 }

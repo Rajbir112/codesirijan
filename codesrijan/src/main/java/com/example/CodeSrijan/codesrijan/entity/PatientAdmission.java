@@ -1,0 +1,54 @@
+package com.example.CodeSrijan.codesrijan.entity;
+
+import jakarta.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "patient_admission")
+public class PatientAdmission {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "patient_name", nullable = false)
+    private String patientName;
+
+    private String illness;
+
+    @OneToOne
+    @JoinColumn(name = "bed_id", nullable = false)
+    private Bed bed;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
+
+    @ManyToMany
+    @JoinTable(
+        name = "patient_nurse",
+        joinColumns = @JoinColumn(name = "admission_id"),
+        inverseJoinColumns = @JoinColumn(name = "nurse_id")
+    )
+    private List<Nurse> nurses;
+
+    @Column(nullable = false)
+    private String status = "ACTIVE";
+
+    public PatientAdmission() {}
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getPatientName() { return patientName; }
+    public void setPatientName(String s) { this.patientName = s; }
+    public String getIllness() { return illness; }
+    public void setIllness(String s) { this.illness = s; }
+    public Bed getBed() { return bed; }
+    public void setBed(Bed b) { this.bed = b; }
+    public Doctor getDoctor() { return doctor; }
+    public void setDoctor(Doctor d) { this.doctor = d; }
+    public List<Nurse> getNurses() { return nurses; }
+    public void setNurses(List<Nurse> n) { this.nurses = n; }
+    public String getStatus() { return status; }
+    public void setStatus(String s) { this.status = s; }
+}

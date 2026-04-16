@@ -16,6 +16,9 @@ public class Nurse {
     @Column(name = "experience_years")
     private Integer experienceYears;
 
+    @Column(name = "is_available")
+    private Boolean isAvailable = true;
+
     public Nurse() {}
 
     public Nurse(String name, Integer experienceYears) {
@@ -31,4 +34,7 @@ public class Nurse {
 
     public Integer getExperienceYears() { return experienceYears; }
     public void setExperienceYears(Integer experienceYears) { this.experienceYears = experienceYears; }
+
+    public Boolean getIsAvailable() { return isAvailable == null || isAvailable; }
+    public void setIsAvailable(Boolean isAvailable) { this.isAvailable = isAvailable; }
 }

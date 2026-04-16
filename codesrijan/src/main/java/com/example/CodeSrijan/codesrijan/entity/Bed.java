@@ -17,6 +17,9 @@ public class Bed {
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
+    @Column(name = "is_available")
+    private Boolean isAvailable = true;
+
     public Bed() {}
 
     public Bed(String bedNumber, Room room) {
@@ -32,4 +35,7 @@ public class Bed {
 
     public Room getRoom() { return room; }
     public void setRoom(Room room) { this.room = room; }
+
+    public Boolean getIsAvailable() { return isAvailable == null || isAvailable; }
+    public void setIsAvailable(Boolean isAvailable) { this.isAvailable = isAvailable; }
 }

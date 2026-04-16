@@ -1,71 +1,134 @@
-const API_BASE = 'http://localhost:8080/api/capacity';
-const DOC_API_BASE = 'http://localhost:8080/api/doctors';
+// Central API file
 
+const BASE = 'http://localhost:8080/api';
+
+// ─── Room / Bed / Capacity ────────────────────────────────
 export const fetchRoomTypes = async () => {
-    const res = await fetch(`${API_BASE}/room-types`);
+    const res = await fetch(`${BASE}/capacity/room-types`);
     if (!res.ok) throw new Error('Failed to fetch room types');
     return res.json();
 };
 
+export const deployCapacity = async (payload) => {
+    const res = await fetch(`${BASE}/capacity`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Failed to deploy capacity');
+    return res.text();
+};
+
+// Alias used by CapacityManager.js
+export const createCapacity = deployCapacity;
+
 export const fetchInventory = async () => {
-    const res = await fetch(`${API_BASE}/inventory`);
+    const res = await fetch(`${BASE}/capacity/inventory`);
     if (!res.ok) throw new Error('Failed to fetch inventory');
     return res.json();
 };
 
-export const createCapacity = async (capacityData) => {
-    const res = await fetch(`${API_BASE}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(capacityData)
-    });
-    if (!res.ok) throw new Error('Failed to generate capacity');
-    return res.text();
-};
+// ─── Doctor ───────────────────────────────────────────────
+const DOC_API = `${BASE}/doctors`;
 
-// DOCTOR API METHODS
 export const fetchDoctorCategories = async () => {
-    const res = await fetch(`${DOC_API_BASE}/categories`);
-    if (!res.ok) throw new Error('Failed to fetch doctor categories');
+    const res = await fetch(`${DOC_API}/categories`);
+    if (!res.ok) throw new Error('Failed to fetch categories');
     return res.json();
 };
 
 export const fetchDoctorStats = async () => {
-    const res = await fetch(`${DOC_API_BASE}/stats`);
-    if (!res.ok) throw new Error('Failed to fetch doctor stats');
+    const res = await fetch(`${DOC_API}/stats`);
+    if (!res.ok) throw new Error('Failed to fetch stats');
     return res.json();
 };
 
-export const addDoctorProfile = async (doctorData) => {
-    const res = await fetch(`${DOC_API_BASE}`, {
+export const addDoctorProfile = async (data) => {
+    const res = await fetch(DOC_API, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(doctorData)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
     });
     if (!res.ok) throw new Error('Failed to add doctor');
     return res.text();
 };
 
-const NURSE_API_BASE = 'http://localhost:8080/api/nurses';
+// ─── Nurse ────────────────────────────────────────────────
+const NURSE_API = `${BASE}/nurses`;
 
 export const fetchNurseStats = async () => {
-    const res = await fetch(`${NURSE_API_BASE}/stats`);
+    const res = await fetch(`${NURSE_API}/stats`);
     if (!res.ok) throw new Error('Failed to fetch nurse stats');
     return res.json();
 };
 
-export const addNurseProfile = async (nurseData) => {
-    const res = await fetch(`${NURSE_API_BASE}`, {
+export const addNurseProfile = async (data) => {
+    const res = await fetch(NURSE_API, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(nurseData)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
     });
     if (!res.ok) throw new Error('Failed to add nurse');
+    return res.text();
+};
+
+// ─── Admissions (hierarchical) ────────────────────────────
+const ADM_API = `${BASE}/admissions`;
+
+export const fetchAdmissionRoomTypes = async () => {
+    const res = await fetch(`${ADM_API}/room-types`);
+    if (!res.ok) throw new Error('Failed to fetch room types');
+    return res.json();
+};
+
+export const fetchAdmissionRooms = async (roomTypeName) => {
+    const res = await fetch(`${ADM_API}/rooms?roomTypeName=${encodeURIComponent(roomTypeName)}`);
+    if (!res.ok) throw new Error('Failed to fetch rooms');
+    return res.json();
+};
+
+export const fetchAdmissionBeds = async (roomId) => {
+    const res = await fetch(`${ADM_API}/beds?roomId=${roomId}`);
+    if (!res.ok) throw new Error('Failed to fetch beds');
+    return res.json();
+};
+
+export const fetchAdmissionDoctorCategories = async () => {
+    const res = await fetch(`${ADM_API}/doctor-categories`);
+    if (!res.ok) throw new Error('Failed to fetch doctor categories');
+    return res.json();
+};
+
+export const fetchAdmissionDoctors = async (categoryId) => {
+    const res = await fetch(`${ADM_API}/doctors?categoryId=${categoryId}`);
+    if (!res.ok) throw new Error('Failed to fetch doctors');
+    return res.json();
+};
+
+export const fetchAdmissionNurses = async () => {
+    const res = await fetch(`${ADM_API}/nurses`);
+    if (!res.ok) throw new Error('Failed to fetch nurses');
+    return res.json();
+};
+
+export const lockAdmission = async (payload) => {
+    const res = await fetch(`${ADM_API}/lock`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Failed to lock admission');
+    return res.text();
+};
+
+export const fetchActiveAdmissions = async () => {
+    const res = await fetch(`${ADM_API}/active`);
+    if (!res.ok) throw new Error('Failed to fetch admissions');
+    return res.json();
+};
+
+export const dischargePatient = async (id) => {
+    const res = await fetch(`${ADM_API}/discharge/${id}`, { method: 'POST' });
+    if (!res.ok) throw new Error('Failed to discharge patient');
     return res.text();
 };
