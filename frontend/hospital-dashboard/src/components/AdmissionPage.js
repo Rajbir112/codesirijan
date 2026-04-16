@@ -6,6 +6,8 @@ import {
     fetchAdmissionDoctorCategories,
     fetchAdmissionDoctors,
     fetchAdmissionNurses,
+    fetchAdmissionEquipmentCategories,
+    fetchAdmissionEquipmentItems,
     lockAdmission,
     fetchActiveAdmissions,
     dischargePatient
@@ -52,6 +54,8 @@ export default function AdmissionPage() {
     const [docCats, setDocCats] = useState([]);
     const [doctors, setDoctors] = useState([]);
     const [nurses, setNurses] = useState([]);
+    const [equipCats, setEquipCats] = useState([]);
+    const [equipItems, setEquipItems] = useState([]);
     const [activeAdmissions, setActiveAdmissions] = useState([]);
 
     const [sel, setSel] = useState({
@@ -59,7 +63,8 @@ export default function AdmissionPage() {
         roomType: null, allowsDoctorNurse: false,
         roomId: '', bedId: '',
         docCatId: '', doctorId: '',
-        nurseIds: []
+        nurseIds: [],
+        equipCat: '', equipmentId: ''
     });
 
     const [submitting, setSubmitting] = useState(false);
@@ -76,32 +81,45 @@ export default function AdmissionPage() {
     };
 
     const onRoomTypeChange = async (typeName, allowsDN) => {
-        setSel({ patientName: sel.patientName, illness: sel.illness, roomType: typeName, allowsDoctorNurse: allowsDN, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [] });
-        setBeds([]); setDocCats([]); setDoctors([]); setNurses([]);
+        setSel({ patientName: sel.patientName, illness: sel.illness, roomType: typeName, allowsDoctorNurse: allowsDN, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipCat: '', equipmentId: '' });
+        setBeds([]); setDocCats([]); setDoctors([]); setNurses([]); setEquipCats([]); setEquipItems([]);
         try { setRooms(await fetchAdmissionRooms(typeName)); } catch (e) { console.error(e); }
     };
 
     const onRoomChange = async (roomId) => {
-        setSel(s => ({ ...s, roomId, bedId: '', docCatId: '', doctorId: '', nurseIds: [] }));
-        setDocCats([]); setDoctors([]); setNurses([]);
+        setSel(s => ({ ...s, roomId, bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipCat: '', equipmentId: '' }));
+        setDocCats([]); setDoctors([]); setNurses([]); setEquipCats([]); setEquipItems([]);
         try { setBeds(await fetchAdmissionBeds(roomId)); } catch (e) { console.error(e); }
     };
 
     const onBedChange = async (bedId) => {
-        setSel(s => ({ ...s, bedId, docCatId: '', doctorId: '', nurseIds: [] }));
-        setDoctors([]); setNurses([]);
+        setSel(s => ({ ...s, bedId, docCatId: '', doctorId: '', nurseIds: [], equipCat: '', equipmentId: '' }));
+        setDoctors([]); setNurses([]); setEquipItems([]);
+        const fetches = [fetchAdmissionEquipmentCategories()];
         if (sel.allowsDoctorNurse) {
-            try {
-                const [cats, ns] = await Promise.all([fetchAdmissionDoctorCategories(), fetchAdmissionNurses()]);
-                setDocCats(cats);
-                setNurses(ns);
-            } catch (e) { console.error(e); }
+            fetches.push(fetchAdmissionDoctorCategories(), fetchAdmissionNurses());
         }
+        try {
+            const results = await Promise.all(fetches);
+            setEquipCats(results[0]);
+            if (sel.allowsDoctorNurse) {
+                setDocCats(results[1]);
+                setNurses(results[2]);
+            }
+        } catch (e) { console.error(e); }
     };
 
     const onDocCatChange = async (catId) => {
         setSel(s => ({ ...s, docCatId: catId, doctorId: '' }));
         try { setDoctors(await fetchAdmissionDoctors(catId)); } catch (e) { console.error(e); }
+    };
+
+    const onEquipCatChange = async (catName) => {
+        setSel(s => ({ ...s, equipCat: catName, equipmentId: '' }));
+        setEquipItems([]);
+        if (catName) {
+            try { setEquipItems(await fetchAdmissionEquipmentItems(catName)); } catch (e) { console.error(e); }
+        }
     };
 
     const toggleNurse = (id) => {
@@ -121,11 +139,12 @@ export default function AdmissionPage() {
                 illness: sel.illness,
                 bedId: sel.bedId,
                 doctorId: sel.doctorId || null,
-                nurseIds: sel.nurseIds
+                nurseIds: sel.nurseIds,
+                equipmentId: sel.equipmentId || null
             });
             setMsg({ type: 'success', text: `Patient "${sel.patientName}" admitted successfully!` });
-            setSel({ patientName: '', illness: '', roomType: null, allowsDoctorNurse: false, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [] });
-            setRooms([]); setBeds([]); setDocCats([]); setDoctors([]); setNurses([]);
+            setSel({ patientName: '', illness: '', roomType: null, allowsDoctorNurse: false, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipCat: '', equipmentId: '' });
+            setRooms([]); setBeds([]); setDocCats([]); setDoctors([]); setNurses([]); setEquipCats([]); setEquipItems([]);
             setRefresh(r => r + 1);
         } catch (err) {
             setMsg({ type: 'error', text: 'Failed to admit patient. Please try again.' });
@@ -314,6 +333,40 @@ export default function AdmissionPage() {
                                 </>
                             )}
 
+                            {/* Equipment Section — shown for ALL room types once bed is selected */}
+                            {sel.bedId && (
+                                <div style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
+                                    <div style={{ fontSize: '0.8rem', color: '#fbbf24', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>🔧 Equipment Allocation (Optional)</div>
+                                    {equipCats.length === 0 ? (
+                                        <p style={{ color: '#64748b', margin: 0, fontSize: '0.85rem' }}>No equipment inventory found. Add equipment in Facility Capacity first.</p>
+                                    ) : (
+                                        <>
+                                            <div className="form-group">
+                                                <label>Equipment Category</label>
+                                                <select className="form-control" value={sel.equipCat} onChange={e => onEquipCatChange(e.target.value)}>
+                                                    <option value="">-- Select Category --</option>
+                                                    {equipCats.map(c => <option key={c} value={c}>{c}</option>)}
+                                                </select>
+                                            </div>
+                                            {sel.equipCat && (
+                                                <div className="form-group" style={{ marginBottom: 0 }}>
+                                                    <label>Select Equipment</label>
+                                                    <select className="form-control" value={sel.equipmentId} onChange={e => setSel(s => ({ ...s, equipmentId: e.target.value }))}>
+                                                        <option value="">-- Select Equipment --</option>
+                                                        {equipItems.map(ei => (
+                                                            <option key={ei.id} value={ei.id}>
+                                                                {ei.equipmentName} ({ei.availableCount} available)
+                                                            </option>
+                                                        ))}
+                                                    </select>
+                                                    {equipItems.length === 0 && <small style={{ color: '#f87171' }}>No available units in this category.</small>}
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                            )}
+
                             {sel.bedId && (
                                 <button type="submit" className="btn" style={{ background: 'linear-gradient(135deg, #ef4444, #dc2626)' }} disabled={submitting}>
                                     {submitting ? 'Admitting...' : '🔒 Confirm Admission & Lock Resources'}
@@ -365,6 +418,13 @@ export default function AdmissionPage() {
                                                 : <div style={{ fontSize: '0.82rem', color: '#64748b' }}>No nurses locked</div>
                                             }
                                         </div>
+                                        {a.equipmentName && (
+                                            <div style={{ background: 'rgba(15,23,42,0.5)', borderRadius: '8px', padding: '0.6rem', gridColumn: '1 / -1' }}>
+                                                <div style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '2px', textTransform: 'uppercase' }}>Equipment Locked</div>
+                                                <div style={{ fontSize: '0.9rem', color: '#fbbf24', fontWeight: 500 }}>🔧 {a.equipmentName}</div>
+                                                <div style={{ fontSize: '0.78rem', color: '#94a3b8' }}>{a.equipmentCategory}</div>
+                                            </div>
+                                        )}
                                     </div>
 
                                     <button

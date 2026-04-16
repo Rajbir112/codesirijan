@@ -97,7 +97,7 @@ export const deleteEquipmentItem = async (id) => {
     return res.text();
 };
 
-// ─── Admissions (hierarchical) ────────────────────────────
+// ─── Admissions (hierarchical) ────────────────────────────────
 const ADM_API = `${BASE}/admissions`;
 
 export const fetchAdmissionRoomTypes = async () => {
@@ -133,6 +133,18 @@ export const fetchAdmissionDoctors = async (categoryId) => {
 export const fetchAdmissionNurses = async () => {
     const res = await fetch(`${ADM_API}/nurses`);
     if (!res.ok) throw new Error('Failed to fetch nurses');
+    return res.json();
+};
+
+export const fetchAdmissionEquipmentCategories = async () => {
+    const res = await fetch(`${ADM_API}/equipment-categories`);
+    if (!res.ok) throw new Error('Failed to fetch equipment categories');
+    return res.json();
+};
+
+export const fetchAdmissionEquipmentItems = async (category) => {
+    const res = await fetch(`${ADM_API}/equipment-items?category=${encodeURIComponent(category)}`);
+    if (!res.ok) throw new Error('Failed to fetch equipment items');
     return res.json();
 };
 

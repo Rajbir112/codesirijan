@@ -1,6 +1,7 @@
 package com.example.CodeSrijan.codesrijan.entity;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -32,8 +33,24 @@ public class PatientAdmission {
     )
     private List<Nurse> nurses;
 
+    @ManyToMany
+    @JoinTable(
+        name = "patient_equipment",
+        joinColumns = @JoinColumn(name = "admission_id"),
+        inverseJoinColumns = @JoinColumn(name = "equipment_id")
+    )
+    private List<Equipment> lockedEquipment;
+
     @Column(nullable = false)
     private String status = "ACTIVE";
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.createdAt == null) this.createdAt = LocalDateTime.now();
+    }
 
     public PatientAdmission() {}
 
@@ -49,6 +66,10 @@ public class PatientAdmission {
     public void setDoctor(Doctor d) { this.doctor = d; }
     public List<Nurse> getNurses() { return nurses; }
     public void setNurses(List<Nurse> n) { this.nurses = n; }
+    public List<Equipment> getLockedEquipment() { return lockedEquipment; }
+    public void setLockedEquipment(List<Equipment> e) { this.lockedEquipment = e; }
     public String getStatus() { return status; }
     public void setStatus(String s) { this.status = s; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime t) { this.createdAt = t; }
 }

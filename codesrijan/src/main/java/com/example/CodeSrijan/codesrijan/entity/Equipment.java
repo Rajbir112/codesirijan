@@ -19,6 +19,9 @@ public class Equipment {
     @Column(nullable = false)
     private Integer count = 0;
 
+    @Column(name = "locked_count", columnDefinition = "integer default 0")
+    private Integer lockedCount = 0;
+
     public Equipment() {}
 
     public Equipment(String categoryName, String equipmentName, Integer count) {
@@ -35,4 +38,7 @@ public class Equipment {
     public void setEquipmentName(String equipmentName) { this.equipmentName = equipmentName; }
     public Integer getCount() { return count; }
     public void setCount(Integer count) { this.count = count; }
+    public Integer getLockedCount() { return lockedCount == null ? 0 : lockedCount; }
+    public void setLockedCount(Integer lockedCount) { this.lockedCount = lockedCount; }
+    public Integer getAvailableCount() { return count - getLockedCount(); }
 }

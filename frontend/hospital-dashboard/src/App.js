@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import CapacityManager from './components/CapacityManager';
 import InventoryDashboard from './components/InventoryDashboard';
@@ -13,10 +13,33 @@ const NAV = [
     { id: 'admissions', label: '🔒 Patient Booking', color: '#ef4444' },
 ];
 
+/** Send browser GPS coords to backend once so weather is location-accurate. */
+function sendLocationToBackend(lat, lon) {
+    fetch('http://localhost:8080/api/weather/location', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lat, lon })
+    })
+    .then(() => console.log(`[Location] Sent lat=${lat.toFixed(4)} lon=${lon.toFixed(4)} to backend`))
+    .catch(err => console.warn('[Location] Could not send location:', err));
+}
+
 function App() {
     const [page, setPage] = useState('facility');
     const [refresh, setRefresh] = useState(0);
     const triggerRefresh = () => setRefresh(r => r + 1);
+
+    // Ask for location permission once on app load
+    useEffect(() => {
+        if (!navigator.geolocation) {
+            console.warn('[Location] Geolocation not supported by this browser.');
+            return;
+        }
+        navigator.geolocation.getCurrentPosition(
+            (pos) => sendLocationToBackend(pos.coords.latitude, pos.coords.longitude),
+            (err) => console.warn('[Location] Permission denied or error:', err.message)
+        );
+    }, []); // empty deps = runs once on mount
 
     return (
         <div className="app-container">

@@ -21,6 +21,7 @@ public class AdmissionController {
     @Autowired private NurseRepository nurseRepo;
     @Autowired private RoomRepository roomRepo;
     @Autowired private DoctorCategoryRepository docCategoryRepo;
+    @Autowired private EquipmentRepository equipmentRepo;
 
     // Room types that allow Doctor + Nurse locking
     private static final Set<String> HIGH_CARE_ROOMS = new HashSet<>(Arrays.asList(
@@ -139,6 +140,33 @@ public class AdmissionController {
         return ResponseEntity.ok(result);
     }
 
+    // GET available equipment categories (those with at least 1 available unit)
+    @GetMapping("/equipment-categories")
+    public ResponseEntity<List<String>> getAvailableEquipmentCategories() {
+        List<Equipment> all = equipmentRepo.findAll();
+        List<String> categories = all.stream()
+            .filter(e -> e.getAvailableCount() > 0)
+            .map(Equipment::getCategoryName)
+            .distinct()
+            .collect(Collectors.toList());
+        return ResponseEntity.ok(categories);
+    }
+
+    // GET available equipment items for a category
+    @GetMapping("/equipment-items")
+    public ResponseEntity<List<Map<String, Object>>> getAvailableEquipmentItems(@RequestParam String category) {
+        List<Map<String, Object>> result = equipmentRepo.findByCategoryName(category).stream()
+            .filter(e -> e.getAvailableCount() > 0)
+            .map(e -> {
+                Map<String, Object> m = new HashMap<>();
+                m.put("id", e.getId());
+                m.put("equipmentName", e.getEquipmentName());
+                m.put("availableCount", e.getAvailableCount());
+                return m;
+            }).collect(Collectors.toList());
+        return ResponseEntity.ok(result);
+    }
+
     // POST lock resources
     @PostMapping("/lock")
     @Transactional
@@ -178,6 +206,17 @@ public class AdmissionController {
             admission.setNurses(nurses);
         }
 
+        // Lock equipment if provided
+        if (body.get("equipmentId") != null && !body.get("equipmentId").toString().isBlank()) {
+            Long equipId = Long.valueOf(body.get("equipmentId").toString());
+            Equipment eq = equipmentRepo.findById(equipId).orElseThrow();
+            if (eq.getAvailableCount() > 0) {
+                eq.setLockedCount(eq.getLockedCount() + 1);
+                equipmentRepo.save(eq);
+                admission.setLockedEquipment(List.of(eq));
+            }
+        }
+
         admissionRepo.save(admission);
         return ResponseEntity.ok("Patient admitted successfully.");
     }
@@ -200,6 +239,11 @@ public class AdmissionController {
             m.put("nurseCount", a.getNurses() != null ? a.getNurses().size() : 0);
             if (a.getNurses() != null) {
                 m.put("nurseNames", a.getNurses().stream().map(Nurse::getName).collect(Collectors.toList()));
+            }
+            if (a.getLockedEquipment() != null && !a.getLockedEquipment().isEmpty()) {
+                Equipment eq = a.getLockedEquipment().get(0);
+                m.put("equipmentCategory", eq.getCategoryName());
+                m.put("equipmentName", eq.getEquipmentName());
             }
             result.add(m);
         }
@@ -224,6 +268,13 @@ public class AdmissionController {
             for (Nurse n : a.getNurses()) {
                 n.setIsAvailable(true);
                 nurseRepo.save(n);
+            }
+        }
+        // Unlock equipment
+        if (a.getLockedEquipment() != null) {
+            for (Equipment eq : a.getLockedEquipment()) {
+                eq.setLockedCount(Math.max(0, eq.getLockedCount() - 1));
+                equipmentRepo.save(eq);
             }
         }
 
