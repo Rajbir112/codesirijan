@@ -1,6 +1,6 @@
 // Central API file
 
-const BASE = 'http://localhost:8080/api';
+const BASE = 'https://codesirijan-production.up.railway.app/api';
 
 // ─── Room / Bed / Capacity ────────────────────────────────
 export const fetchRoomTypes = async () => {

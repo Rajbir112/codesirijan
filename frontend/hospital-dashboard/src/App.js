@@ -15,7 +15,7 @@ const NAV = [
 
 /** Send browser GPS coords to backend once so weather is location-accurate. */
 function sendLocationToBackend(lat, lon) {
-    fetch('http://localhost:8080/api/weather/location', {
+    fetch('https://codesirijan-production.up.railway.app/api/weather/location', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ lat, lon })

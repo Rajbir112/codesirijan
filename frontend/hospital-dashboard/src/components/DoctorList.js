@@ -70,7 +70,7 @@ const DoctorList = ({ refreshTrigger }) => {
                     key={nurse.id}
                     name={nurse.name}
                     subInfo={`⭐ ${nurse.experienceYears} Years Experience`}
-                    deleteUrl={`http://localhost:8080/api/nurses/${nurse.id}`}
+                    deleteUrl={`https://codesirijan-production.up.railway.app/api/nurses/${nurse.id}`}
                     onDeleted={loadAllStats}
                   />
                 ))}
@@ -91,7 +91,7 @@ const DoctorList = ({ refreshTrigger }) => {
                     key={doc.id}
                     name={`Dr. ${doc.name}`}
                     subInfo={`🎓 ${doc.education}  •  ⭐ ${doc.experienceYears} Yrs Exp`}
-                    deleteUrl={`http://localhost:8080/api/doctors/${doc.id}`}
+                    deleteUrl={`https://codesirijan-production.up.railway.app/api/doctors/${doc.id}`}
                     onDeleted={loadAllStats}
                   />
                 ))}
