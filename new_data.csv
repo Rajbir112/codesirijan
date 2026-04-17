@@ -1,0 +1,51 @@
+equipment,date,recorded_at,total_patients_last_day,total_patients_last_7_days,total_usage_last_day,total_usage_last_7_days,value,is_holiday,is_weekend
+"CT Scanners",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"Defibrillators",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"Ventilators",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"Electrosurgical Units (Cautery)",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"Crash Carts",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"Wheelchairs",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"Surgical Instrument Sets",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"IV Stands",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"Stretchers",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"X-ray Machines",2026-04-14,2026-04-17T15:02:04.063526,0,0,0,0,0,false,false
+"CT Scanners",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,0,false,false
+"Defibrillators",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,0,false,false
+"Ventilators",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,0,false,false
+"Electrosurgical Units (Cautery)",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,0,false,false
+"Crash Carts",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,0,false,false
+"Surgical Instrument Sets",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,0,false,false
+"IV Stands",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,0,false,false
+"Stretchers",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,0,false,false
+"X-ray Machines",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,0,false,false
+"Wheelchairs",2026-04-14,2026-04-17T15:03:04.048716,0,0,0,0,2,false,false
+"CT Scanners",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,0,false,false
+"Defibrillators",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,0,false,false
+"Ventilators",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,0,false,false
+"Electrosurgical Units (Cautery)",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,0,false,false
+"Crash Carts",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,0,false,false
+"Surgical Instrument Sets",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,0,false,false
+"IV Stands",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,0,false,false
+"Stretchers",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,0,false,false
+"X-ray Machines",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,0,false,false
+"Wheelchairs",2026-04-14,2026-04-17T15:04:04.047204,0,0,0,0,4,false,false
+"CT Scanners",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,0,false,false
+"Defibrillators",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,0,false,false
+"Ventilators",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,0,false,false
+"Electrosurgical Units (Cautery)",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,0,false,false
+"Crash Carts",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,0,false,false
+"Surgical Instrument Sets",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,0,false,false
+"IV Stands",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,0,false,false
+"Stretchers",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,0,false,false
+"X-ray Machines",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,0,false,false
+"Wheelchairs",2026-04-14,2026-04-17T15:05:04.056825,0,0,0,0,4,false,false
+"CT Scanners",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,0,false,false
+"Defibrillators",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,0,false,false
+"Ventilators",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,0,false,false
+"Electrosurgical Units (Cautery)",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,0,false,false
+"Crash Carts",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,0,false,false
+"Surgical Instrument Sets",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,0,false,false
+"IV Stands",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,0,false,false
+"Stretchers",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,0,false,false
+"X-ray Machines",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,0,false,false
+"Wheelchairs",2026-04-14,2026-04-17T15:06:04.062424,0,0,0,0,5,false,false

@@ -10,7 +10,8 @@ import {
     fetchAdmissionEquipmentItems,
     lockAdmission,
     fetchActiveAdmissions,
-    dischargePatient
+    dischargePatient,
+    fetchEquipmentDemandForecast
 } from '../api';
 
 const HIGH_CARE = [
@@ -69,6 +70,24 @@ export default function AdmissionPage() {
 
     const [submitting, setSubmitting] = useState(false);
     const [msg, setMsg] = useState(null);
+
+    const [analyzing, setAnalyzing] = useState(false);
+    const [predictions, setPredictions] = useState([]);
+    const [forecastMsg, setForecastMsg] = useState(null);
+
+    const handleAnalyze = async () => {
+        setAnalyzing(true);
+        setForecastMsg(null);
+        try {
+            const data = await fetchEquipmentDemandForecast();
+            setPredictions(data);
+            setForecastMsg({ type: 'success', text: 'Demand forecast generated successfully!' });
+        } catch (e) {
+            setForecastMsg({ type: 'error', text: 'Failed to run ML model. Check backend logs.' });
+        } finally {
+            setAnalyzing(false);
+        }
+    };
 
     // Load room types on mount / refresh
     useEffect(() => { loadRoomTypes(); loadActiveAdmissions(); }, [refresh]);
@@ -185,6 +204,11 @@ export default function AdmissionPage() {
                         </span>
                     )}
                 </button>
+                <button onClick={() => setTab('forecast')} style={{
+                    padding: '0.65rem 1.5rem', borderRadius: '10px', fontWeight: 600, cursor: 'pointer', fontSize: '0.95rem',
+                    background: tab === 'forecast' ? 'linear-gradient(135deg, #3b82f6, #2563eb)' : 'rgba(255,255,255,0.05)',
+                    color: '#fff', border: tab === 'forecast' ? 'none' : '1px solid rgba(255,255,255,0.1)'
+                }}>🔮 Demand Forecast</button>
             </div>
 
             {tab === 'admit' && (
@@ -435,6 +459,73 @@ export default function AdmissionPage() {
                                     </button>
                                 </div>
                             ))}
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {tab === 'forecast' && (
+                <div className="card" style={{ borderColor: 'rgba(59,130,246,0.3)', padding: '1.5rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                        <div>
+                            <h2 style={{ fontSize: '1.4rem', color: '#60a5fa', margin: '0 0 0.5rem 0' }}>🔮 3-Day Equipment Demand Forecast</h2>
+                            <p style={{ color: '#94a3b8', margin: 0, fontSize: '0.95rem' }}>
+                                Analyzes hospital historical data strictly against the Random Forest ML Pipeline to predict future resource needs.
+                            </p>
+                        </div>
+                        <button 
+                            onClick={handleAnalyze} 
+                            disabled={analyzing}
+                            style={{ background: 'linear-gradient(135deg, #3b82f6, #2563eb)', color: '#fff', border: 'none', padding: '0.85rem 1.75rem', borderRadius: '8px', fontWeight: 600, cursor: 'pointer', fontSize: '1rem', minWidth: '180px' }}>
+                            {analyzing ? '⏳ Analyzing Data...' : '📊 Analyze Demand'}
+                        </button>
+                    </div>
+
+                    {forecastMsg && <div className={`alert alert-${forecastMsg.type}`}>{forecastMsg.text}</div>}
+
+                    {predictions.length > 0 && (
+                        <div style={{ marginTop: '1.5rem', background: 'rgba(15,23,42,0.6)', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)' }}>
+                            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                                <thead>
+                                    <tr style={{ background: 'rgba(255,255,255,0.05)', textAlign: 'left' }}>
+                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#a5b4fc', fontWeight: 600 }}>Equipment Name</th>
+                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', fontWeight: 600 }}>Currently Available</th>
+                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#fbbf24', fontWeight: 600 }}>Predicted Demand (Next 3 Days)</th>
+                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#a5b4fc', fontWeight: 600 }}>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {predictions.map((p, idx) => {
+                                        if (p.error) {
+                                            return (
+                                                <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                                                    <td style={{ padding: '1rem', color: '#f8fafc' }}>{p.equipment}</td>
+                                                    <td colSpan="3" style={{ padding: '1rem', color: '#f87171' }}>Error: {p.error}</td>
+                                                </tr>
+                                            );
+                                        }
+
+                                        const available = p.currentlyAvailable || 0;
+                                        const demand = p.predictedDemand || 0;
+                                        const isShortage = demand > available;
+                                        
+                                        return (
+                                            <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', background: isShortage ? 'rgba(239,68,68,0.05)' : 'transparent' }}>
+                                                <td style={{ padding: '1.25rem', color: '#f8fafc', fontWeight: 500, fontSize: '1.05rem' }}>{p.equipment}</td>
+                                                <td style={{ padding: '1.25rem', color: '#cbd5e1', fontSize: '1.05rem' }}>{available} units</td>
+                                                <td style={{ padding: '1.25rem', color: '#fbbf24', fontWeight: 'bold', fontSize: '1.1rem' }}>{demand} units</td>
+                                                <td style={{ padding: '1.25rem' }}>
+                                                    {isShortage ? (
+                                                        <span style={{ background: 'rgba(239,68,68,0.2)', color: '#fca5a5', padding: '6px 12px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600 }}>⚠️ Shortage Likely</span>
+                                                    ) : (
+                                                        <span style={{ background: 'rgba(16,185,129,0.2)', color: '#6ee7b7', padding: '6px 12px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600 }}>✅ Sufficient</span>
+                                                    )}
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
                         </div>
                     )}
                 </div>

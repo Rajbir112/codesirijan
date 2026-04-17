@@ -17,7 +17,7 @@ public class PatientAdmission {
 
     private String illness;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "bed_id", nullable = false)
     private Bed bed;
 

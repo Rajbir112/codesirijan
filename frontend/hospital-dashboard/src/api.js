@@ -169,3 +169,11 @@ export const dischargePatient = async (id) => {
     if (!res.ok) throw new Error('Failed to discharge patient');
     return res.text();
 };
+
+// ─── Machine Learning ─────────────────────────────────────────
+
+export const fetchEquipmentDemandForecast = async () => {
+    const res = await fetch(`${BASE}/predict/demand`);
+    if (!res.ok) throw new Error('Failed to fetch equipment demand forecast');
+    return res.json();
+};
