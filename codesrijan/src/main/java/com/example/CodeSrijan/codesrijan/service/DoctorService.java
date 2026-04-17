@@ -6,6 +6,8 @@ import com.example.CodeSrijan.codesrijan.entity.Doctor;
 import com.example.CodeSrijan.codesrijan.entity.DoctorCategory;
 import com.example.CodeSrijan.codesrijan.repository.DoctorCategoryRepository;
 import com.example.CodeSrijan.codesrijan.repository.DoctorRepository;
+import com.example.CodeSrijan.codesrijan.repository.PatientAdmissionRepository;
+import com.example.CodeSrijan.codesrijan.entity.PatientAdmission;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,9 @@ public class DoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
 
+    @Autowired
+    private PatientAdmissionRepository admissionRepository;
+
     @Transactional
     public Doctor addDoctor(DoctorRequest request) {
         DoctorCategory category = categoryRepository.findByName(request.getCategoryName())
@@ -29,6 +34,22 @@ public class DoctorService {
 
         Doctor doctor = new Doctor(request.getName(), request.getEducation(), request.getExperienceYears(), category);
         return doctorRepository.save(doctor);
+    }
+
+    @Transactional
+    public void deleteDoctor(Long id) {
+        Doctor doc = doctorRepository.findById(id).orElseThrow(() -> new RuntimeException("Doctor not found"));
+        if (Boolean.FALSE.equals(doc.getIsAvailable())) {
+             throw new RuntimeException("Cannot delete doctor assigned to an active admission.");
+        }
+        
+        List<PatientAdmission> pastAdmissions = admissionRepository.findByDoctorId(id);
+        for(PatientAdmission a : pastAdmissions) {
+            a.setDoctor(null);
+            admissionRepository.save(a);
+        }
+        
+        doctorRepository.delete(doc);
     }
 
     public List<DoctorResponse> getDoctorStats() {
@@ -40,7 +61,7 @@ public class DoctorService {
             
             List<DoctorResponse.DoctorDetails> detailsList = new ArrayList<>();
             for (Doctor d : doctors) {
-                detailsList.add(new DoctorResponse.DoctorDetails(d.getName(), d.getEducation(), d.getExperienceYears()));
+                detailsList.add(new DoctorResponse.DoctorDetails(d.getId(), d.getName(), d.getEducation(), d.getExperienceYears()));
             }
 
             responses.add(new DoctorResponse(category.getName(), doctors.size(), detailsList));

@@ -6889,3 +6889,1235 @@ date,equipment,is_holiday,is_weekend,recorded_at,total_patients_last_7_days,tota
 2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:06:14.539675,7,1,0,0,3
 2026-04-14,Ventilators,False,False,2026-04-17T21:06:14.539675,7,1,7,1,9
 2026-04-14,MRI Machines,False,False,2026-04-17T21:06:14.539675,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:07:14.542155,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:07:14.542155,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:07:14.542155,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:07:14.542155,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:07:14.542155,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:07:14.542155,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:07:14.542155,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:08:14.529691,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:08:14.529691,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:08:14.529691,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:08:14.529691,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:08:14.529691,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:08:14.529691,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:08:14.529691,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:09:14.528390,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:09:14.528390,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:09:14.528390,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:09:14.528390,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:09:14.528390,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:09:14.528390,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:09:14.528390,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:10:14.527736,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:10:14.527736,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:10:14.527736,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:10:14.527736,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:10:14.527736,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:10:14.527736,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:10:14.527736,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:11:14.529363,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:11:14.529363,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:11:14.529363,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:11:14.529363,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:11:14.529363,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:11:14.529363,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:11:14.529363,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:12:14.529387,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:12:14.529387,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:12:14.529387,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:12:14.529387,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:12:14.529387,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:12:14.529387,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:12:14.529387,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:13:14.534804,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:13:14.534804,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:13:14.534804,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:13:14.534804,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:13:14.534804,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:13:14.534804,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:13:14.534804,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:14:14.539618,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:14:14.539618,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:14:14.539618,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:14:14.539618,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:14:14.539618,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:14:14.539618,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:14:14.539618,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:15:14.541396,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:15:14.541396,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:15:14.541396,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:15:14.541396,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:15:14.541396,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:15:14.541396,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:15:14.541396,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:16:14.530021,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:16:14.530021,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:16:14.530021,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:16:14.530021,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:16:14.530021,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:16:14.530021,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:16:14.530021,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:17:14.528395,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:17:14.528395,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:17:14.528395,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:17:14.528395,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:17:14.528395,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:17:14.528395,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:17:14.528395,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:18:14.539253,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:18:14.539253,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:18:14.539253,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:18:14.539253,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:18:14.539253,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:18:14.539253,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:18:14.539253,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:19:14.530568,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:19:14.530568,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:19:14.530568,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:19:14.530568,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:19:14.530568,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:19:14.530568,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:19:14.530568,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:20:14.533261,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:20:14.533261,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:20:14.533261,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:20:14.533261,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:20:14.533261,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:20:14.533261,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:20:14.533261,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:21:14.541680,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:21:14.541680,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:21:14.541680,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:21:14.541680,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:21:14.541680,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:21:14.541680,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:21:14.541680,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:22:14.528521,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:22:14.528521,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:22:14.528521,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:22:14.528521,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:22:14.528521,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:22:14.528521,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:22:14.528521,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:23:14.533578,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:23:14.533578,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:23:14.533578,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:23:14.533578,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:23:14.533578,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:23:14.533578,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:23:14.533578,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:24:14.534637,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:24:14.534637,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:24:14.534637,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:24:14.534637,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:24:14.534637,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:24:14.534637,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:24:14.534637,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:25:14.533736,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:25:14.533736,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:25:14.533736,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:25:14.533736,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:25:14.533736,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:25:14.533736,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:25:14.533736,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:26:14.536428,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:26:14.536428,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:26:14.536428,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:26:14.536428,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:26:14.536428,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:26:14.536428,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:26:14.536428,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:27:14.534994,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:27:14.534994,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:27:14.534994,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:27:14.534994,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:27:14.534994,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:27:14.534994,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:27:14.534994,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:28:14.529379,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:28:14.529379,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:28:14.529379,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:28:14.529379,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:28:14.529379,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:28:14.529379,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:28:14.529379,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:29:14.541658,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:29:14.541658,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:29:14.541658,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:29:14.541658,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:29:14.541658,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:29:14.541658,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:29:14.541658,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:30:14.542052,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:30:14.542052,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:30:14.542052,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:30:14.542052,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:30:14.542052,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:30:14.542052,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:30:14.542052,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:31:14.537529,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:31:14.537529,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:31:14.537529,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:31:14.537529,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:31:14.537529,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:31:14.537529,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:31:14.537529,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:32:14.541421,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:32:14.541421,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:32:14.541421,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:32:14.541421,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:32:14.541421,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:32:14.541421,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:32:14.541421,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:33:14.539237,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:33:14.539237,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:33:14.539237,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:33:14.539237,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:33:14.539237,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:33:14.539237,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:33:14.539237,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:34:14.532989,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:34:14.532989,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:34:14.532989,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:34:14.532989,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:34:14.532989,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:34:14.532989,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:34:14.532989,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:35:14.536811,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:35:14.536811,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:35:14.536811,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:35:14.536811,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:35:14.536811,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:35:14.536811,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:35:14.536811,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:36:14.541684,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:36:14.541684,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:36:14.541684,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:36:14.541684,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:36:14.541684,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:36:14.541684,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:36:14.541684,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:37:14.545563,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:37:14.545563,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:37:14.545563,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:37:14.545563,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:37:14.545563,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:37:14.545563,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:37:14.545563,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:38:14.536823,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:38:14.536823,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:38:14.536823,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:38:14.536823,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:38:14.536823,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:38:14.536823,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:38:14.536823,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:39:14.533888,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:39:14.533888,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:39:14.533888,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:39:14.533888,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:39:14.533888,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:39:14.533888,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:39:14.533888,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:40:14.541769,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:40:14.541769,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:40:14.541769,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:40:14.541769,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:40:14.541769,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:40:14.541769,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:40:14.541769,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:41:14.529586,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:41:14.529586,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:41:14.529586,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:41:14.529586,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:41:14.529586,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:41:14.529586,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:41:14.529586,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:42:14.533713,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:42:14.533713,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:42:14.533713,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:42:14.533713,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:42:14.533713,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:42:14.533713,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:42:14.533713,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:43:14.541864,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:43:14.541864,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:43:14.541864,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:43:14.541864,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:43:14.541864,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:43:14.541864,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:43:14.541864,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:44:14.530330,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:44:14.530330,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:44:14.530330,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:44:14.530330,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:44:14.530330,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:44:14.530330,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:44:14.530330,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:45:14.528234,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:45:14.528234,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:45:14.528234,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:45:14.528234,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:45:14.528234,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:45:14.528234,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:45:14.528234,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:46:14.530319,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:46:14.530319,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:46:14.530319,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:46:14.530319,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:46:14.530319,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:46:14.530319,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:46:14.530319,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:47:14.536751,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:47:14.536751,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:47:14.536751,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:47:14.536751,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:47:14.536751,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:47:14.536751,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:47:14.536751,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:48:14.529456,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:48:14.529456,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:48:14.529456,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:48:14.529456,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:48:14.529456,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:48:14.529456,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:48:14.529456,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:49:14.537388,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:49:14.537388,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:49:14.537388,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:49:14.537388,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:49:14.537388,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:49:14.537388,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:49:14.537388,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:50:14.532284,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:50:14.532284,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:50:14.532284,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:50:14.532284,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:50:14.532284,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:50:14.532284,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:50:14.532284,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:51:14.535417,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:51:14.535417,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:51:14.535417,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:51:14.535417,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:51:14.535417,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:51:14.535417,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:51:14.535417,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:52:14.541756,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:52:14.541756,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:52:14.541756,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:52:14.541756,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:52:14.541756,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:52:14.541756,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:52:14.541756,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:53:14.527751,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:53:14.527751,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:53:14.527751,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:53:14.527751,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:53:14.527751,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:53:14.527751,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:53:14.527751,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:54:14.541822,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:54:14.541822,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:54:14.541822,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:54:14.541822,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:54:14.541822,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:54:14.541822,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:54:14.541822,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:55:14.531693,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:55:14.531693,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:55:14.531693,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:55:14.531693,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:55:14.531693,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:55:14.531693,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:55:14.531693,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:56:14.529910,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:56:14.529910,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:56:14.529910,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:56:14.529910,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:56:14.529910,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:56:14.529910,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:56:14.529910,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:57:14.543102,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:57:14.543102,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:57:14.543102,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:57:14.543102,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:57:14.543102,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:57:14.543102,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:57:14.543102,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:58:14.531261,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:58:14.531261,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:58:14.531261,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:58:14.531261,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:58:14.531261,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:58:14.531261,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:58:14.531261,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T21:59:14.530378,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T21:59:14.530378,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T21:59:14.530378,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T21:59:14.530378,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T21:59:14.530378,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T21:59:14.530378,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T21:59:14.530378,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:00:14.545809,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:00:14.545809,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:00:14.545809,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:00:14.545809,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:00:14.545809,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:00:14.545809,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:00:14.545809,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:01:14.531774,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:01:14.531774,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:01:14.531774,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:01:14.531774,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:01:14.531774,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:01:14.531774,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:01:14.531774,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:02:14.533239,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:02:14.533239,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:02:14.533239,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:02:14.533239,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:02:14.533239,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:02:14.533239,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:02:14.533239,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:03:14.536920,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:03:14.536920,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:03:14.536920,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:03:14.536920,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:03:14.536920,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:03:14.536920,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:03:14.536920,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:04:14.530666,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:04:14.530666,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:04:14.530666,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:04:14.530666,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:04:14.530666,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:04:14.530666,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:04:14.530666,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:05:14.542159,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:05:14.542159,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:05:14.542159,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:05:14.542159,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:05:14.542159,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:05:14.542159,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:05:14.542159,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:06:14.527760,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:06:14.527760,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:06:14.527760,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:06:14.527760,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:06:14.527760,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:06:14.527760,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:06:14.527760,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:07:14.529494,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:07:14.529494,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:07:14.529494,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:07:14.529494,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:07:14.529494,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:07:14.529494,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:07:14.529494,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:08:14.529830,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:08:14.529830,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:08:14.529830,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:08:14.529830,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:08:14.529830,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:08:14.529830,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:08:14.529830,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:09:14.528354,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:09:14.528354,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:09:14.528354,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:09:14.528354,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:09:14.528354,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:09:14.528354,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:09:14.528354,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:10:14.528662,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:10:14.528662,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:10:14.528662,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:10:14.528662,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:10:14.528662,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:10:14.528662,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:10:14.528662,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:11:14.528066,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:11:14.528066,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:11:14.528066,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:11:14.528066,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:11:14.528066,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:11:14.528066,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:11:14.528066,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:12:14.529721,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:12:14.529721,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:12:14.529721,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:12:14.529721,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:12:14.529721,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:12:14.529721,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:12:14.529721,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:13:14.528221,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:13:14.528221,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:13:14.528221,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:13:14.528221,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:13:14.528221,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:13:14.528221,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:13:14.528221,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:14:14.529890,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:14:14.529890,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:14:14.529890,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:14:14.529890,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:14:14.529890,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:14:14.529890,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:14:14.529890,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:15:14.527984,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:15:14.527984,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:15:14.527984,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:15:14.527984,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:15:14.527984,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:15:14.527984,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:15:14.527984,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:16:14.532977,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:16:14.532977,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:16:14.532977,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:16:14.532977,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:16:14.532977,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:16:14.532977,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:16:14.532977,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:17:14.528055,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:17:14.528055,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:17:14.528055,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:17:14.528055,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:17:14.528055,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:17:14.528055,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:17:14.528055,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:18:14.529770,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:18:14.529770,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:18:14.529770,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:18:14.529770,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:18:14.529770,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:18:14.529770,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:18:14.529770,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:19:14.535706,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:19:14.535706,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:19:14.535706,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:19:14.535706,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:19:14.535706,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:19:14.535706,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:19:14.535706,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:20:14.529842,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:20:14.529842,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:20:14.529842,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:20:14.529842,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:20:14.529842,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:20:14.529842,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:20:14.529842,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:21:14.535294,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:21:14.535294,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:21:14.535294,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:21:14.535294,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:21:14.535294,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:21:14.535294,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:21:14.535294,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:22:14.541610,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:22:14.541610,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:22:14.541610,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:22:14.541610,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:22:14.541610,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:22:14.541610,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:22:14.541610,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:23:14.558085,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:23:14.558085,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:23:14.558085,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:23:14.558085,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:23:14.558085,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:23:14.558085,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:23:14.558085,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:24:14.531763,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:24:14.531763,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:24:14.531763,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:24:14.531763,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:24:14.531763,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:24:14.531763,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:24:14.531763,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:25:14.528275,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:25:14.528275,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:25:14.528275,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:25:14.528275,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:25:14.528275,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:25:14.528275,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:25:14.528275,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:26:14.531212,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:26:14.531212,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:26:14.531212,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:26:14.531212,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:26:14.531212,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:26:14.531212,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:26:14.531212,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:27:14.537483,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:27:14.537483,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:27:14.537483,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:27:14.537483,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:27:14.537483,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:27:14.537483,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:27:14.537483,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:28:14.602334,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:28:14.602334,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:28:14.602334,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:28:14.602334,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:28:14.602334,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:28:14.602334,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:28:14.602334,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:29:14.537224,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:29:14.537224,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:29:14.537224,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:29:14.537224,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:29:14.537224,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:29:14.537224,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:29:14.537224,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:30:14.532444,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:30:14.532444,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:30:14.532444,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:30:14.532444,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:30:14.532444,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:30:14.532444,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:30:14.532444,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:31:14.529254,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:31:14.529254,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:31:14.529254,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:31:14.529254,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:31:14.529254,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:31:14.529254,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:31:14.529254,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:32:14.534622,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:32:14.534622,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:32:14.534622,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:32:14.534622,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:32:14.534622,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:32:14.534622,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:32:14.534622,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:33:14.529177,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:33:14.529177,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:33:14.529177,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:33:14.529177,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:33:14.529177,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:33:14.529177,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:33:14.529177,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:34:14.579950,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:34:14.579950,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:34:14.579950,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:34:14.579950,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:34:14.579950,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:34:14.579950,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:34:14.579950,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:35:14.536453,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:35:14.536453,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:35:14.536453,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:35:14.536453,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:35:14.536453,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:35:14.536453,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:35:14.536453,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:36:14.540252,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:36:14.540252,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:36:14.540252,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:36:14.540252,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:36:14.540252,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:36:14.540252,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:36:14.540252,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:37:14.528819,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:37:14.528819,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:37:14.528819,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:37:14.528819,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:37:14.528819,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:37:14.528819,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:37:14.528819,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:38:14.533245,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:38:14.533245,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:38:14.533245,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:38:14.533245,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:38:14.533245,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:38:14.533245,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:38:14.533245,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:39:14.535292,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:39:14.535292,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:39:14.535292,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:39:14.535292,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:39:14.535292,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:39:14.535292,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:39:14.535292,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:40:14.529093,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:40:14.529093,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:40:14.529093,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:40:14.529093,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:40:14.529093,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:40:14.529093,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:40:14.529093,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:41:14.528690,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:41:14.528690,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:41:14.528690,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:41:14.528690,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:41:14.528690,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:41:14.528690,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:41:14.528690,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:42:14.527834,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:42:14.527834,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:42:14.527834,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:42:14.527834,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:42:14.527834,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:42:14.527834,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:42:14.527834,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:43:14.528481,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:43:14.528481,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:43:14.528481,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:43:14.528481,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:43:14.528481,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:43:14.528481,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:43:14.528481,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:44:14.537199,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:44:14.537199,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:44:14.537199,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:44:14.537199,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:44:14.537199,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:44:14.537199,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:44:14.537199,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:45:14.536945,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:45:14.536945,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:45:14.536945,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:45:14.536945,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:45:14.536945,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:45:14.536945,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:45:14.536945,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:46:14.533296,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:46:14.533296,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:46:14.533296,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:46:14.533296,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:46:14.533296,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:46:14.533296,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:46:14.533296,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:47:14.541843,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:47:14.541843,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:47:14.541843,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:47:14.541843,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:47:14.541843,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:47:14.541843,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:47:14.541843,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:48:14.532910,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:48:14.532910,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:48:14.532910,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:48:14.532910,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:48:14.532910,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:48:14.532910,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:48:14.532910,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:49:14.538804,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:49:14.538804,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:49:14.538804,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:49:14.538804,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:49:14.538804,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:49:14.538804,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:49:14.538804,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:50:14.531980,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:50:14.531980,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:50:14.531980,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:50:14.531980,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:50:14.531980,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:50:14.531980,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:50:14.531980,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:51:14.530279,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:51:14.530279,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:51:14.530279,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:51:14.530279,7,1,0,0,0
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:51:14.530279,7,1,0,0,3
+2026-04-14,Ventilators,False,False,2026-04-17T22:51:14.530279,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:51:14.530279,7,1,0,0,2
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:52:14.536011,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:52:14.536011,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:52:14.536011,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:52:14.536011,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T22:52:14.536011,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:52:14.536011,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:52:14.536011,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:53:14.535355,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:53:14.535355,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:53:14.535355,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:53:14.535355,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T22:53:14.535355,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:53:14.535355,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:53:14.535355,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:54:14.528868,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:54:14.528868,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:54:14.528868,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:54:14.528868,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T22:54:14.528868,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:54:14.528868,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:54:14.528868,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:55:14.535597,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:55:14.535597,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:55:14.535597,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:55:14.535597,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T22:55:14.535597,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:55:14.535597,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:55:14.535597,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:56:14.543211,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:56:14.543211,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:56:14.543211,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:56:14.543211,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T22:56:14.543211,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:56:14.543211,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:56:14.543211,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:57:14.531604,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:57:14.531604,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:57:14.531604,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:57:14.531604,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T22:57:14.531604,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:57:14.531604,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:57:14.531604,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:58:14.539133,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:58:14.539133,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:58:14.539133,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:58:14.539133,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T22:58:14.539133,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:58:14.539133,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:58:14.539133,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T22:59:14.528683,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T22:59:14.528683,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T22:59:14.528683,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T22:59:14.528683,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T22:59:14.528683,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T22:59:14.528683,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T22:59:14.528683,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:00:14.533092,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:00:14.533092,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:00:14.533092,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:00:14.533092,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:00:14.533092,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:00:14.533092,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:00:14.533092,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:01:14.528915,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:01:14.528915,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:01:14.528915,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:01:14.528915,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:01:14.528915,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:01:14.528915,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:01:14.528915,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:02:14.533178,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:02:14.533178,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:02:14.533178,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:02:14.533178,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:02:14.533178,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:02:14.533178,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:02:14.533178,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:03:14.541792,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:03:14.541792,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:03:14.541792,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:03:14.541792,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:03:14.541792,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:03:14.541792,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:03:14.541792,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:04:14.531378,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:04:14.531378,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:04:14.531378,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:04:14.531378,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:04:14.531378,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:04:14.531378,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:04:14.531378,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:05:14.540703,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:05:14.540703,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:05:14.540703,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:05:14.540703,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:05:14.540703,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:05:14.540703,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:05:14.540703,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:06:14.529606,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:06:14.529606,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:06:14.529606,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:06:14.529606,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:06:14.529606,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:06:14.529606,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:06:14.529606,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:07:14.537305,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:07:14.537305,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:07:14.537305,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:07:14.537305,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:07:14.537305,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:07:14.537305,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:07:14.537305,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:08:14.527854,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:08:14.527854,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:08:14.527854,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:08:14.527854,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:08:14.527854,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:08:14.527854,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:08:14.527854,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:09:14.534170,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:09:14.534170,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:09:14.534170,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:09:14.534170,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:09:14.534170,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:09:14.534170,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:09:14.534170,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:10:14.542175,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:10:14.542175,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:10:14.542175,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:10:14.542175,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:10:14.542175,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:10:14.542175,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:10:14.542175,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:11:14.533381,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:11:14.533381,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:11:14.533381,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:11:14.533381,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:11:14.533381,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:11:14.533381,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:11:14.533381,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:12:14.539093,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:12:14.539093,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:12:14.539093,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:12:14.539093,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:12:14.539093,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:12:14.539093,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:12:14.539093,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:13:14.531547,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:13:14.531547,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:13:14.531547,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:13:14.531547,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:13:14.531547,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:13:14.531547,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:13:14.531547,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:14:14.538810,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:14:14.538810,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:14:14.538810,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:14:14.538810,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:14:14.538810,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:14:14.538810,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:14:14.538810,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:15:14.528579,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:15:14.528579,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:15:14.528579,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:15:14.528579,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:15:14.528579,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:15:14.528579,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:15:14.528579,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:16:14.535893,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:16:14.535893,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:16:14.535893,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:16:14.535893,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:16:14.535893,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:16:14.535893,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:16:14.535893,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:17:14.542110,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:17:14.542110,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:17:14.542110,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:17:14.542110,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:17:14.542110,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:17:14.542110,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:17:14.542110,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:18:14.532367,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:18:14.532367,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:18:14.532367,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:18:14.532367,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:18:14.532367,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:18:14.532367,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:18:14.532367,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:19:14.540739,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:19:14.540739,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:19:14.540739,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:19:14.540739,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:19:14.540739,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:19:14.540739,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:19:14.540739,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:20:15.869271,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:20:15.869271,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:20:15.869271,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:20:15.869271,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:20:15.869271,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:20:15.869271,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:20:15.869271,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:21:15.876112,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:21:15.876112,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:21:15.876112,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:21:15.876112,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:21:15.876112,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:21:15.876112,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:21:15.876112,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:22:15.867881,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:22:15.867881,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:22:15.867881,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:22:15.867881,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:22:15.867881,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:22:15.867881,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:22:15.867881,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:23:15.873794,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:23:15.873794,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:23:15.873794,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:23:15.873794,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:23:15.873794,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:23:15.873794,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:23:15.873794,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:24:15.871208,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:24:15.871208,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:24:15.871208,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:24:15.871208,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:24:15.871208,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:24:15.871208,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:24:15.871208,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:25:15.871373,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:25:15.871373,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:25:15.871373,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:25:15.871373,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:25:15.871373,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:25:15.871373,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:25:15.871373,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:26:15.874815,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:26:15.874815,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:26:15.874815,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:26:15.874815,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:26:15.874815,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:26:15.874815,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:26:15.874815,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:27:15.865416,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:27:15.865416,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:27:15.865416,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:27:15.865416,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:27:15.865416,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:27:15.865416,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:27:15.865416,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:28:15.865437,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:28:15.865437,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:28:15.865437,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:28:15.865437,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:28:15.865437,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:28:15.865437,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:28:15.865437,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:29:15.866698,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:29:15.866698,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:29:15.866698,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:29:15.866698,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:29:15.866698,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:29:15.866698,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:29:15.866698,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:30:15.867014,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:30:15.867014,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:30:15.867014,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:30:15.867014,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:30:15.867014,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:30:15.867014,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:30:15.867014,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:31:15.865285,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:31:15.865285,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:31:15.865285,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:31:15.865285,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:31:15.865285,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:31:15.865285,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:31:15.865285,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:32:15.867216,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:32:15.867216,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:32:15.867216,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:32:15.867216,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:32:15.867216,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:32:15.867216,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:32:15.867216,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:33:15.876940,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:33:15.876940,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:33:15.876940,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:33:15.876940,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:33:15.876940,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:33:15.876940,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:33:15.876940,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:34:15.867614,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:34:15.867614,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:34:15.867614,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:34:15.867614,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:34:15.867614,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:34:15.867614,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:34:15.867614,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:35:15.866632,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:35:15.866632,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:35:15.866632,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:35:15.866632,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:35:15.866632,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:35:15.866632,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:35:15.866632,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:36:15.870263,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:36:15.870263,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:36:15.870263,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:36:15.870263,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:36:15.870263,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:36:15.870263,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:36:15.870263,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:37:15.872062,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:37:15.872062,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:37:15.872062,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:37:15.872062,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:37:15.872062,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:37:15.872062,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:37:15.872062,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:50:04.071049,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:50:04.071049,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:50:04.071049,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:50:04.071049,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:50:04.071049,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:50:04.071049,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:50:04.071049,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:51:04.068655,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:51:04.068655,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:51:04.068655,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:51:04.068655,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:51:04.068655,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:51:04.068655,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:51:04.068655,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:52:04.065425,7,1,0,0,0
+2026-04-14,CT Scanners,False,False,2026-04-17T23:52:04.065425,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:52:04.065425,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:52:04.065425,7,1,0,0,0
+2026-04-14,Ventilators,False,False,2026-04-17T23:52:04.065425,7,1,7,1,9
+2026-04-14,MRI Machines,False,False,2026-04-17T23:52:04.065425,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:52:04.065425,7,1,0,0,4
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:53:04.064658,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:53:04.064658,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:53:04.064658,7,1,0,0,0
+2026-04-14,MRI Machines,False,False,2026-04-17T23:53:04.064658,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:53:04.064658,7,1,0,0,4
+2026-04-14,CT Scanners,False,False,2026-04-17T23:53:04.064658,7,1,0,0,1
+2026-04-14,Ventilators,False,False,2026-04-17T23:53:04.064658,7,1,7,1,10
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:54:04.072934,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:54:04.072934,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:54:04.072934,7,1,0,0,0
+2026-04-14,MRI Machines,False,False,2026-04-17T23:54:04.072934,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:54:04.072934,7,1,0,0,4
+2026-04-14,CT Scanners,False,False,2026-04-17T23:54:04.072934,7,1,0,0,1
+2026-04-14,Ventilators,False,False,2026-04-17T23:54:04.072934,7,1,7,1,10
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:55:04.069071,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:55:04.069071,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:55:04.069071,7,1,0,0,0
+2026-04-14,MRI Machines,False,False,2026-04-17T23:55:04.069071,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:55:04.069071,7,1,0,0,4
+2026-04-14,CT Scanners,False,False,2026-04-17T23:55:04.069071,7,1,0,0,1
+2026-04-14,Ventilators,False,False,2026-04-17T23:55:04.069071,7,1,7,1,10
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:56:04.065138,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:56:04.065138,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:56:04.065138,7,1,0,0,0
+2026-04-14,MRI Machines,False,False,2026-04-17T23:56:04.065138,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:56:04.065138,7,1,0,0,4
+2026-04-14,CT Scanners,False,False,2026-04-17T23:56:04.065138,7,1,0,0,1
+2026-04-14,Ventilators,False,False,2026-04-17T23:56:04.065138,7,1,7,1,10
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:57:04.065405,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:57:04.065405,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:57:04.065405,7,1,0,0,0
+2026-04-14,MRI Machines,False,False,2026-04-17T23:57:04.065405,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:57:04.065405,7,1,0,0,4
+2026-04-14,CT Scanners,False,False,2026-04-17T23:57:04.065405,7,1,0,0,1
+2026-04-14,Ventilators,False,False,2026-04-17T23:57:04.065405,7,1,7,1,10
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:58:04.065536,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:58:04.065536,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:58:04.065536,7,1,0,0,0
+2026-04-14,MRI Machines,False,False,2026-04-17T23:58:04.065536,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:58:04.065536,7,1,0,0,4
+2026-04-14,CT Scanners,False,False,2026-04-17T23:58:04.065536,7,1,0,0,1
+2026-04-14,Ventilators,False,False,2026-04-17T23:58:04.065536,7,1,7,1,10
+2026-04-14,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-17T23:59:04.067823,7,1,0,0,0
+2026-04-14,Wheelchairs,False,False,2026-04-17T23:59:04.067823,7,1,0,0,0
+2026-04-14,Stretchers,False,False,2026-04-17T23:59:04.067823,7,1,0,0,0
+2026-04-14,MRI Machines,False,False,2026-04-17T23:59:04.067823,7,1,0,0,2
+2026-04-14,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-17T23:59:04.067823,7,1,0,0,4
+2026-04-14,CT Scanners,False,False,2026-04-17T23:59:04.067823,7,1,0,0,1
+2026-04-14,Ventilators,False,False,2026-04-17T23:59:04.067823,7,1,7,1,10
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:00:04.067643,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:00:04.067643,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:00:04.067643,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:00:04.067643,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:00:04.067643,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:00:04.067643,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:00:04.067643,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:01:04.068822,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:01:04.068822,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:01:04.068822,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:01:04.068822,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:01:04.068822,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:01:04.068822,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:01:04.068822,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:02:04.121005,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:02:04.121005,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:02:04.121005,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:02:04.121005,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:02:04.121005,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:02:04.121005,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:02:04.121005,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:03:04.066735,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:03:04.066735,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:03:04.066735,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:03:04.066735,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:03:04.066735,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:03:04.066735,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:03:04.066735,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:04:04.079521,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:04:04.079521,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:04:04.079521,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:04:04.079521,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:04:04.079521,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:04:04.079521,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:04:04.079521,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:05:04.072242,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:05:04.072242,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:05:04.072242,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:05:04.072242,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:05:04.072242,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:05:04.072242,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:05:04.072242,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:06:04.077374,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:06:04.077374,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:06:04.077374,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:06:04.077374,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:06:04.077374,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:06:04.077374,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:06:04.077374,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:07:04.072109,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:07:04.072109,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:07:04.072109,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:07:04.072109,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:07:04.072109,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:07:04.072109,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:07:04.072109,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:08:04.074431,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:08:04.074431,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:08:04.074431,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:08:04.074431,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:08:04.074431,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:08:04.074431,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:08:04.074431,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:09:04.108685,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:09:04.108685,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:09:04.108685,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:09:04.108685,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:09:04.108685,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:09:04.108685,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:09:04.108685,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:10:04.064752,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:10:04.064752,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:10:04.064752,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:10:04.064752,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:10:04.064752,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:10:04.064752,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:10:04.064752,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:11:04.064693,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:11:04.064693,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:11:04.064693,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:11:04.064693,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:11:04.064693,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:11:04.064693,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:11:04.064693,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:12:04.064872,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:12:04.064872,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:12:04.064872,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:12:04.064872,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:12:04.064872,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:12:04.064872,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:12:04.064872,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:13:04.064584,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:13:04.064584,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:13:04.064584,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:13:04.064584,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:13:04.064584,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:13:04.064584,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:13:04.064584,9,2,9,2,8
+2026-04-15,"Patient Monitors (ECG, BP, SpO2)",False,False,2026-04-18T00:14:04.066780,9,2,0,0,0
+2026-04-15,Wheelchairs,False,False,2026-04-18T00:14:04.066780,9,2,0,0,0
+2026-04-15,Stretchers,False,False,2026-04-18T00:14:04.066780,9,2,0,0,0
+2026-04-15,MRI Machines,False,False,2026-04-18T00:14:04.066780,9,2,0,0,2
+2026-04-15,Oxygen Cylinders / Central Oxygen Supply,False,False,2026-04-18T00:14:04.066780,9,2,0,0,4
+2026-04-15,CT Scanners,False,False,2026-04-18T00:14:04.066780,9,2,0,0,1
+2026-04-15,Ventilators,False,False,2026-04-18T00:14:04.066780,9,2,9,2,8

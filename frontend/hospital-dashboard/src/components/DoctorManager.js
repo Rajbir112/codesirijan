@@ -60,8 +60,8 @@ const DoctorManager = ({ onDoctorAdded }) => {
   };
 
   return (
-    <div className="card" style={{ borderColor: '#8b5cf6' }}>
-      <h2 className="card-title" style={{ color: '#c4b5fd', borderBottomColor: 'rgba(139, 92, 246, 0.2)' }}>
+    <div className="card">
+      <h2 className="card-title" style={{ color: '#1E293B', borderBottom: '1px solid #E2E8F0' }}>
         Add to Medical Personnel Directory
       </h2>
       
@@ -72,15 +72,15 @@ const DoctorManager = ({ onDoctorAdded }) => {
       )}
 
       <form onSubmit={handleSubmit}>
-        <div className="form-group" style={{ marginBottom: '1.5rem', backgroundColor: 'rgba(139, 92, 246, 0.1)', padding: '0.8rem', borderRadius: '8px' }}>
-          <label style={{ color: '#e2e8f0' }}>Select Personnel Role</label>
-          <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
-             <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', cursor: 'pointer' }}>
-               <input type="radio" value="Doctor" checked={role === 'Doctor'} onChange={() => setRole('Doctor')} />
+        <div className="form-group" style={{ marginBottom: '1.5rem', backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0', padding: '1rem', borderRadius: '8px' }}>
+          <label style={{ color: '#1E293B', fontWeight: 600, marginBottom: '0.75rem', display: 'block' }}>Select Personnel Role</label>
+          <div style={{ display: 'flex', gap: '2rem' }}>
+             <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', cursor: 'pointer', color: '#1E293B', fontWeight: 500 }}>
+               <input type="radio" value="Doctor" checked={role === 'Doctor'} onChange={() => setRole('Doctor')} style={{ accentColor: '#0066FF', width: '18px', height: '18px' }} />
                Doctor
              </label>
-             <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', cursor: 'pointer' }}>
-               <input type="radio" value="Nurse" checked={role === 'Nurse'} onChange={() => setRole('Nurse')} />
+             <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', cursor: 'pointer', color: '#1E293B', fontWeight: 500 }}>
+               <input type="radio" value="Nurse" checked={role === 'Nurse'} onChange={() => setRole('Nurse')} style={{ accentColor: '#0066FF', width: '18px', height: '18px' }} />
                Nurse
              </label>
           </div>
@@ -140,7 +140,7 @@ const DoctorManager = ({ onDoctorAdded }) => {
           />
         </div>
 
-        <button type="submit" className="btn" style={{ backgroundColor: '#8b5cf6' }} disabled={loading}>
+        <button type="submit" className="btn" disabled={loading}>
           {loading ? 'Adding...' : `Add ${role} Profile`}
         </button>
       </form>

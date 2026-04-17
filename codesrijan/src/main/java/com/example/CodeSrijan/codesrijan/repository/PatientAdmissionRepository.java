@@ -10,6 +10,10 @@ import java.util.List;
 public interface PatientAdmissionRepository extends JpaRepository<PatientAdmission, Long> {
 
     List<PatientAdmission> findByStatus(String status);
+    
+    List<PatientAdmission> findByDoctorId(Long doctorId);
+    
+    List<PatientAdmission> findByNurses_Id(Long nurseId);
 
     /** Count ALL admissions with createdAt in [start, end] */
     @Query("SELECT COUNT(pa) FROM PatientAdmission pa WHERE pa.createdAt BETWEEN :start AND :end")

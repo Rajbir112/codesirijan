@@ -23,15 +23,20 @@ public class DoctorResponse {
     public void setDoctors(List<DoctorDetails> doctors) { this.doctors = doctors; }
 
     public static class DoctorDetails {
+        private Long id;
         private String name;
         private String education;
         private Integer experienceYears;
 
-        public DoctorDetails(String name, String education, Integer experienceYears) {
+        public DoctorDetails(Long id, String name, String education, Integer experienceYears) {
+            this.id = id;
             this.name = name;
             this.education = education;
             this.experienceYears = experienceYears;
         }
+
+        public Long getId() { return id; }
+        public void setId(Long id) { this.id = id; }
 
         public String getName() { return name; }
         public void setName(String name) { this.name = name; }

@@ -58,4 +58,14 @@ public class DoctorController {
     public ResponseEntity<List<DoctorResponse>> getDoctorStats() {
         return ResponseEntity.ok(doctorService.getDoctorStats());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteDoctor(@PathVariable Long id) {
+        try {
+            doctorService.deleteDoctor(id);
+            return ResponseEntity.ok("Doctor deleted successfully");
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

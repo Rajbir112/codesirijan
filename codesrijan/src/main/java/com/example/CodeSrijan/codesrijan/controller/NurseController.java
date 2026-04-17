@@ -25,4 +25,14 @@ public class NurseController {
     public ResponseEntity<NurseResponse> getNurseStats() {
         return ResponseEntity.ok(nurseService.getNurseStats());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteNurse(@PathVariable Long id) {
+        try {
+            nurseService.deleteNurse(id);
+            return ResponseEntity.ok("Nurse deleted successfully");
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

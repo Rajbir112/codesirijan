@@ -43,48 +43,46 @@ function App() {
 
     return (
         <div className="app-container">
-            {/* ── Header ── */}
-            <div className="header">
-                <h1>Hospital Operations Center</h1>
-                <p>Resource Management · Medical Personnel · Patient Admissions</p>
-            </div>
+            {/* ── Modern Navigation Bar ── */}
+            <div className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem', borderBottom: '1px solid #E2E8F0', paddingBottom: '1.5rem' }}>
+                <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <div className="logo-icon" style={{ background: '#0066FF', color: 'white', width: '45px', height: '45px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '10px', fontSize: '1.5rem', fontWeight: 'bold' }}>
+                        C
+                    </div>
+                    <div className="logo-text">
+                        <h1 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 700, color: '#1E293B', letterSpacing: '-0.5px' }}>CODESRIJAN</h1>
+                        <p style={{ margin: 0, fontSize: '0.75rem', color: '#64748B', fontWeight: 500, letterSpacing: '1px' }}>HOSPITAL MANAGEMENT</p>
+                    </div>
+                </div>
 
-            {/* ── Navigation Tabs ── */}
-            <nav style={{
-                display: 'flex', gap: '1rem', marginBottom: '2.5rem',
-                background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(12px)',
-                padding: '0.75rem', borderRadius: '14px',
-                border: '1px solid rgba(255,255,255,0.08)'
-            }}>
-                {NAV.map(n => (
-                    <button
-                        key={n.id}
-                        onClick={() => setPage(n.id)}
-                        style={{
-                            flex: 1, padding: '0.8rem 1rem', borderRadius: '10px',
-                            fontWeight: 600, fontSize: '0.95rem', cursor: 'pointer',
-                            transition: 'all 0.2s',
-                            background: page === n.id
-                                ? `linear-gradient(135deg, ${n.color}cc, ${n.color}88)`
-                                : 'transparent',
-                            color: page === n.id ? '#fff' : '#94a3b8',
-                            border: page === n.id
-                                ? `1px solid ${n.color}66`
-                                : '1px solid transparent',
-                            boxShadow: page === n.id ? `0 4px 12px ${n.color}33` : 'none'
-                        }}
-                    >
-                        {n.label}
-                    </button>
-                ))}
-            </nav>
+                <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+                    {NAV.map(n => (
+                        <button
+                            key={n.id}
+                            onClick={() => setPage(n.id)}
+                            style={{
+                                background: 'none', border: 'none', cursor: 'pointer',
+                                fontSize: '1rem', fontWeight: page === n.id ? 700 : 500,
+                                color: page === n.id ? '#0066FF' : '#64748B',
+                                padding: '0.5rem 0',
+                                position: 'relative', transition: 'color 0.2s'
+                            }}
+                        >
+                            {n.label}
+                            {page === n.id && (
+                                <div style={{ position: 'absolute', bottom: '-26px', left: 0, right: 0, height: '3px', background: '#0066FF', borderRadius: '3px 3px 0 0' }} />
+                            )}
+                        </button>
+                    ))}
+                </nav>
+            </div>
 
             {/* ── Pages ── */}
             {page === 'facility' && (
                 <>
-                    <div style={{ marginBottom: '1.5rem' }}>
-                        <h2 style={{ fontSize: '1.4rem', color: '#93c5fd', margin: 0 }}>Facility Capacity Management</h2>
-                        <p style={{ color: '#64748b', margin: '0.25rem 0 0', fontSize: '0.9rem' }}>Configure room types, number of rooms and beds per room</p>
+                    <div style={{ marginBottom: '2rem' }}>
+                        <h2 style={{ fontSize: '2rem', color: '#1E293B', margin: 0, fontWeight: 700 }}>Facility Capacity Management</h2>
+                        <p style={{ color: '#64748B', margin: '0.5rem 0 0', fontSize: '1rem' }}>Configure room types, number of rooms and beds per room.</p>
                     </div>
                     <div className="main-content">
                         <CapacityManager onCapacityAdded={triggerRefresh} />
@@ -96,9 +94,9 @@ function App() {
 
             {page === 'personnel' && (
                 <>
-                    <div style={{ marginBottom: '1.5rem' }}>
-                        <h2 style={{ fontSize: '1.4rem', color: '#c4b5fd', margin: 0 }}>Medical Personnel Database</h2>
-                        <p style={{ color: '#64748b', margin: '0.25rem 0 0', fontSize: '0.9rem' }}>Register doctors by specialty and nursing staff</p>
+                    <div style={{ marginBottom: '2rem' }}>
+                        <h2 style={{ fontSize: '2rem', color: '#1E293B', margin: 0, fontWeight: 700 }}>Medical Personnel Database</h2>
+                        <p style={{ color: '#64748B', margin: '0.5rem 0 0', fontSize: '1rem' }}>Register doctors by specialty and nursing staff.</p>
                     </div>
                     <div className="main-content">
                         <DoctorManager onDoctorAdded={triggerRefresh} />
@@ -109,9 +107,9 @@ function App() {
 
             {page === 'admissions' && (
                 <>
-                    <div style={{ marginBottom: '1.5rem' }}>
-                        <h2 style={{ fontSize: '1.4rem', color: '#fca5a5', margin: 0 }}>Patient Admissions & Resource Booking</h2>
-                        <p style={{ color: '#64748b', margin: '0.25rem 0 0', fontSize: '0.9rem' }}>Admit patients, assign beds, lock doctors and nurses</p>
+                    <div style={{ marginBottom: '2rem' }}>
+                        <h2 style={{ fontSize: '2rem', color: '#1E293B', margin: 0, fontWeight: 700 }}>Patient Admissions & Booking</h2>
+                        <p style={{ color: '#64748B', margin: '0.5rem 0 0', fontSize: '1rem' }}>Admit patients, assign beds, lock doctors and nurses securely.</p>
                     </div>
                     <AdmissionPage />
                 </>

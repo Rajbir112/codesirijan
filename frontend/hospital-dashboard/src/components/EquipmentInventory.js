@@ -151,20 +151,20 @@ export default function EquipmentInventory() {
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                 <div>
-                    <h2 style={{ fontSize: '1.4rem', color: '#93c5fd', margin: 0 }}>Equipment Inventory</h2>
-                    <p style={{ color: '#64748b', margin: '0.25rem 0 0', fontSize: '0.9rem' }}>
-                        Record and manage hospital equipment counts by category
+                    <h2 style={{ fontSize: '1.5rem', color: '#1E293B', margin: 0, fontWeight: 700 }}>Equipment Inventory</h2>
+                    <p style={{ color: '#64748B', margin: '0.25rem 0 0', fontSize: '0.95rem' }}>
+                        Record and manage hospital equipment counts by category.
                     </p>
                 </div>
                 {totalTypes > 0 && (
                     <div style={{ display: 'flex', gap: '1rem' }}>
-                        <div style={{ background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: '10px', padding: '0.5rem 1rem', textAlign: 'center' }}>
-                            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#60a5fa' }}>{totalTypes}</div>
-                            <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Equipment Types</div>
+                        <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '10px', padding: '0.5rem 1rem', textAlign: 'center' }}>
+                            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0066FF' }}>{totalTypes}</div>
+                            <div style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 600 }}>Equipment Types</div>
                         </div>
-                        <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '10px', padding: '0.5rem 1rem', textAlign: 'center' }}>
-                            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#34d399' }}>{grandTotal}</div>
-                            <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Total Units</div>
+                        <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '10px', padding: '0.5rem 1rem', textAlign: 'center' }}>
+                            <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#10B981' }}>{grandTotal}</div>
+                            <div style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 600 }}>Total Units</div>
                         </div>
                     </div>
                 )}
@@ -178,20 +178,20 @@ export default function EquipmentInventory() {
                     const isSavedCat = saved[cat.key];
 
                     return (
-                        <div key={cat.key} className="card" style={{ borderColor: cat.colorBorder, background: `linear-gradient(145deg, rgba(15,23,42,0.9), ${cat.colorBg})`, padding: '1.25rem' }}>
+                        <div key={cat.key} className="card" style={{ borderColor: cat.colorBorder, background: `linear-gradient(145deg, #FFFFFF, ${cat.colorBg})`, padding: '1.25rem' }}>
                             {/* Category Header */}
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', paddingBottom: '0.75rem', borderBottom: `1px solid ${cat.colorBorder}` }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                                     <span style={{ fontSize: '1.3rem' }}>{cat.icon}</span>
                                     <div>
-                                        <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#e2e8f0' }}>{cat.key}</div>
+                                        <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#1E293B' }}>{cat.key}</div>
                                         <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
                                             {rows.filter(r => r.id).length} items recorded
                                         </div>
                                     </div>
                                 </div>
                                 {isSavedCat && (
-                                    <span style={{ background: `rgba(16,185,129,0.15)`, color: '#34d399', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '99px', padding: '2px 10px', fontSize: '0.72rem', fontWeight: 600 }}>
+                                    <span style={{ background: `rgba(16,185,129,0.15)`, color: '#10B981', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '99px', padding: '2px 10px', fontSize: '0.72rem', fontWeight: 600 }}>
                                         ✓ Saved
                                     </span>
                                 )}
@@ -202,7 +202,7 @@ export default function EquipmentInventory() {
                                 <div style={{
                                     padding: '0.6rem 0.8rem', borderRadius: '8px', marginBottom: '0.75rem', fontSize: '0.85rem',
                                     background: message.type === 'success' ? 'rgba(16,185,129,0.12)' : 'rgba(239,68,68,0.12)',
-                                    color: message.type === 'success' ? '#34d399' : '#f87171',
+                                    color: message.type === 'success' ? '#10B981' : '#EF4444',
                                     border: `1px solid ${message.type === 'success' ? 'rgba(16,185,129,0.25)' : 'rgba(239,68,68,0.25)'}`
                                 }}>
                                     {message.text}
@@ -246,12 +246,12 @@ export default function EquipmentInventory() {
                                                 value={row.count}
                                                 onChange={e => updateRow(cat.key, idx, 'count', e.target.value)}
                                             />
-                                            <div style={{ display: 'flex', alignItems: 'center', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden' }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', background: '#F8FAFC', borderRadius: '6px', border: '1px solid #E2E8F0', overflow: 'hidden' }}>
                                                 <input
                                                     type="number"
                                                     placeholder="Add"
                                                     title="Amount to add/subtract"
-                                                    style={{ width: '60px', border: 'none', background: 'transparent', color: '#e2e8f0', padding: '0.5rem', textAlign: 'center', fontSize: '0.85rem', outline: 'none' }}
+                                                    style={{ width: '60px', border: 'none', background: 'transparent', color: '#1E293B', padding: '0.5rem', textAlign: 'center', fontSize: '0.85rem', outline: 'none' }}
                                                     value={row.delta !== undefined ? row.delta : ''}
                                                     onChange={e => updateRow(cat.key, idx, 'delta', e.target.value)}
                                                     onKeyDown={e => {
@@ -266,7 +266,7 @@ export default function EquipmentInventory() {
                                                 />
                                                 <button
                                                     title="Apply Update"
-                                                    style={{ width: '40px', border: 'none', borderLeft: '1px solid rgba(255,255,255,0.1)', background: 'rgba(59,130,246,0.15)', color: '#60a5fa', cursor: 'pointer', padding: '0.5rem', fontSize: '0.9rem', fontWeight: 'bold' }}
+                                                    style={{ width: '40px', border: 'none', borderLeft: '1px solid #E2E8F0', background: 'rgba(59,130,246,0.1)', color: '#0066FF', cursor: 'pointer', padding: '0.5rem', fontSize: '0.9rem', fontWeight: 'bold' }}
                                                     onClick={(e) => {
                                                         e.preventDefault();
                                                         const current = parseInt(row.count) || 0;
@@ -283,8 +283,8 @@ export default function EquipmentInventory() {
                                                 disabled={rows.length === 1 && !row.equipmentName}
                                                 title="Remove row"
                                                 style={{
-                                                    width: 32, height: 32, borderRadius: '8px', border: '1px solid rgba(239,68,68,0.3)',
-                                                    background: 'rgba(239,68,68,0.1)', color: '#f87171', cursor: 'pointer',
+                                                    width: 32, height: 32, borderRadius: '8px', border: '1px solid rgba(239,68,68,0.2)',
+                                                    background: 'rgba(239,68,68,0.05)', color: '#EF4444', cursor: 'pointer',
                                                     display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem',
                                                     opacity: rows.length === 1 && !row.equipmentName ? 0.4 : 1
                                                 }}

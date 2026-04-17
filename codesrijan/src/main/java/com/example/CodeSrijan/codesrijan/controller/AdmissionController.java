@@ -207,13 +207,23 @@ public class AdmissionController {
         }
 
         // Lock equipment if provided
-        if (body.get("equipmentId") != null && !body.get("equipmentId").toString().isBlank()) {
-            Long equipId = Long.valueOf(body.get("equipmentId").toString());
-            Equipment eq = equipmentRepo.findById(equipId).orElseThrow();
-            if (eq.getAvailableCount() > 0) {
-                eq.setLockedCount(eq.getLockedCount() + 1);
-                equipmentRepo.save(eq);
-                admission.setLockedEquipment(List.of(eq));
+        @SuppressWarnings("unchecked")
+        List<Object> equipIdObjs = (List<Object>) body.get("equipmentIds");
+        if (equipIdObjs != null && !equipIdObjs.isEmpty()) {
+            List<Equipment> lockedEq = new ArrayList<>();
+            for (Object eqIdObj : equipIdObjs) {
+                if (eqIdObj != null && !eqIdObj.toString().isBlank()) {
+                    Long equipId = Long.valueOf(eqIdObj.toString());
+                    Equipment eq = equipmentRepo.findById(equipId).orElseThrow();
+                    if (eq.getAvailableCount() > 0) {
+                        eq.setLockedCount(eq.getLockedCount() + 1);
+                        equipmentRepo.save(eq);
+                        lockedEq.add(eq);
+                    }
+                }
+            }
+            if (!lockedEq.isEmpty()) {
+                admission.setLockedEquipment(lockedEq);
             }
         }
 
@@ -241,9 +251,15 @@ public class AdmissionController {
                 m.put("nurseNames", a.getNurses().stream().map(Nurse::getName).collect(Collectors.toList()));
             }
             if (a.getLockedEquipment() != null && !a.getLockedEquipment().isEmpty()) {
-                Equipment eq = a.getLockedEquipment().get(0);
-                m.put("equipmentCategory", eq.getCategoryName());
-                m.put("equipmentName", eq.getEquipmentName());
+                String equipNames = a.getLockedEquipment().stream()
+                        .map(Equipment::getEquipmentName)
+                        .collect(Collectors.joining(", "));
+                String equipCats = a.getLockedEquipment().stream()
+                        .map(Equipment::getCategoryName)
+                        .distinct()
+                        .collect(Collectors.joining(", "));
+                m.put("equipmentCategory", equipCats);
+                m.put("equipmentName", equipNames);
             }
             result.add(m);
         }

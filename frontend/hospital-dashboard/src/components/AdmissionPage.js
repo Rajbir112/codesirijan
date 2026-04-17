@@ -26,19 +26,19 @@ const step = (num, label, active, done) => (
     <div style={{
         display: 'flex', alignItems: 'center', gap: '0.75rem',
         padding: '0.6rem 1rem', borderRadius: '8px', marginBottom: '0.5rem',
-        background: done ? 'rgba(16,185,129,0.08)' : active ? 'rgba(99,102,241,0.12)' : 'transparent',
-        border: `1px solid ${done ? 'rgba(16,185,129,0.3)' : active ? 'rgba(99,102,241,0.4)' : 'transparent'}`,
+        background: done ? 'rgba(16,185,129,0.08)' : active ? 'rgba(0,102,255,0.08)' : 'transparent',
+        border: `1px solid ${done ? 'rgba(16,185,129,0.3)' : active ? 'rgba(0,102,255,0.3)' : 'transparent'}`,
         transition: 'all 0.2s'
     }}>
         <div style={{
             width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center',
             justifyContent: 'center', fontWeight: 700, fontSize: '0.85rem', flexShrink: 0,
-            background: done ? '#10b981' : active ? '#6366f1' : 'rgba(255,255,255,0.1)',
-            color: done || active ? '#fff' : '#94a3b8'
+            background: done ? '#10B981' : active ? '#0066FF' : '#E2E8F0',
+            color: done || active ? '#fff' : '#64748B'
         }}>
             {done ? '✓' : num}
         </div>
-        <span style={{ fontSize: '0.9rem', color: done ? '#34d399' : active ? '#a5b4fc' : '#94a3b8', fontWeight: active ? 600 : 400 }}>
+        <span style={{ fontSize: '0.9rem', color: done ? '#10B981' : active ? '#0066FF' : '#64748B', fontWeight: active ? 600 : 400 }}>
             {label}
         </span>
     </div>
@@ -65,7 +65,8 @@ export default function AdmissionPage() {
         roomId: '', bedId: '',
         docCatId: '', doctorId: '',
         nurseIds: [],
-        equipCat: '', equipmentId: ''
+        equipmentCount: '',          // how many equipment slots
+        equipmentSlots: []           // [{ cat, itemId, items }]
     });
 
     const [submitting, setSubmitting] = useState(false);
@@ -100,19 +101,19 @@ export default function AdmissionPage() {
     };
 
     const onRoomTypeChange = async (typeName, allowsDN) => {
-        setSel({ patientName: sel.patientName, illness: sel.illness, roomType: typeName, allowsDoctorNurse: allowsDN, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipCat: '', equipmentId: '' });
+        setSel({ patientName: sel.patientName, illness: sel.illness, roomType: typeName, allowsDoctorNurse: allowsDN, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipmentCount: '', equipmentSlots: [] });
         setBeds([]); setDocCats([]); setDoctors([]); setNurses([]); setEquipCats([]); setEquipItems([]);
         try { setRooms(await fetchAdmissionRooms(typeName)); } catch (e) { console.error(e); }
     };
 
     const onRoomChange = async (roomId) => {
-        setSel(s => ({ ...s, roomId, bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipCat: '', equipmentId: '' }));
+        setSel(s => ({ ...s, roomId, bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipmentCount: '', equipmentSlots: [] }));
         setDocCats([]); setDoctors([]); setNurses([]); setEquipCats([]); setEquipItems([]);
         try { setBeds(await fetchAdmissionBeds(roomId)); } catch (e) { console.error(e); }
     };
 
     const onBedChange = async (bedId) => {
-        setSel(s => ({ ...s, bedId, docCatId: '', doctorId: '', nurseIds: [], equipCat: '', equipmentId: '' }));
+        setSel(s => ({ ...s, bedId, docCatId: '', doctorId: '', nurseIds: [], equipmentCount: '', equipmentSlots: [] }));
         setDoctors([]); setNurses([]); setEquipItems([]);
         const fetches = [fetchAdmissionEquipmentCategories()];
         if (sel.allowsDoctorNurse) {
@@ -133,12 +134,37 @@ export default function AdmissionPage() {
         try { setDoctors(await fetchAdmissionDoctors(catId)); } catch (e) { console.error(e); }
     };
 
-    const onEquipCatChange = async (catName) => {
-        setSel(s => ({ ...s, equipCat: catName, equipmentId: '' }));
-        setEquipItems([]);
+    // ─── Multi-Equipment helpers ──────────────────────────
+    const onEquipmentCountChange = (val) => {
+        const n = Math.max(0, parseInt(val) || 0);
+        setSel(s => {
+            const current = s.equipmentSlots || [];
+            const next = Array.from({ length: n }, (_, i) => current[i] || { cat: '', itemId: '', items: [] });
+            return { ...s, equipmentCount: val, equipmentSlots: next };
+        });
+    };
+
+    const onSlotCatChange = async (slotIdx, catName) => {
+        setSel(s => {
+            const slots = s.equipmentSlots.map((slot, i) => i === slotIdx ? { cat: catName, itemId: '', items: [] } : slot);
+            return { ...s, equipmentSlots: slots };
+        });
         if (catName) {
-            try { setEquipItems(await fetchAdmissionEquipmentItems(catName)); } catch (e) { console.error(e); }
+            try {
+                const items = await fetchAdmissionEquipmentItems(catName);
+                setSel(s => {
+                    const slots = s.equipmentSlots.map((slot, i) => i === slotIdx ? { ...slot, items } : slot);
+                    return { ...s, equipmentSlots: slots };
+                });
+            } catch (e) { console.error(e); }
         }
+    };
+
+    const onSlotItemChange = (slotIdx, itemId) => {
+        setSel(s => {
+            const slots = s.equipmentSlots.map((slot, i) => i === slotIdx ? { ...slot, itemId } : slot);
+            return { ...s, equipmentSlots: slots };
+        });
     };
 
     const toggleNurse = (id) => {
@@ -159,10 +185,10 @@ export default function AdmissionPage() {
                 bedId: sel.bedId,
                 doctorId: sel.doctorId || null,
                 nurseIds: sel.nurseIds,
-                equipmentId: sel.equipmentId || null
+                equipmentIds: (sel.equipmentSlots || []).map(s => s.itemId).filter(Boolean)
             });
             setMsg({ type: 'success', text: `Patient "${sel.patientName}" admitted successfully!` });
-            setSel({ patientName: '', illness: '', roomType: null, allowsDoctorNurse: false, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipCat: '', equipmentId: '' });
+            setSel({ patientName: '', illness: '', roomType: null, allowsDoctorNurse: false, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipmentCount: '', equipmentSlots: [] });
             setRooms([]); setBeds([]); setDocCats([]); setDoctors([]); setNurses([]); setEquipCats([]); setEquipItems([]);
             setRefresh(r => r + 1);
         } catch (err) {
@@ -188,34 +214,37 @@ export default function AdmissionPage() {
             <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
                 <button onClick={() => setTab('admit')} style={{
                     padding: '0.65rem 1.5rem', borderRadius: '10px', fontWeight: 600, cursor: 'pointer', fontSize: '0.95rem',
-                    background: tab === 'admit' ? 'linear-gradient(135deg, #ef4444, #dc2626)' : 'rgba(255,255,255,0.05)',
-                    color: '#fff', border: tab === 'admit' ? 'none' : '1px solid rgba(255,255,255,0.1)'
+                    background: tab === 'admit' ? '#0066FF' : '#FFFFFF',
+                    color: tab === 'admit' ? '#fff' : '#64748B', border: tab === 'admit' ? '1px solid #0066FF' : '1px solid #E2E8F0',
+                    boxShadow: tab === 'admit' ? '0 4px 12px rgba(0,102,255,0.2)' : 'none'
                 }}>Admit Patient</button>
                 <button onClick={() => setTab('active')} style={{
                     padding: '0.65rem 1.5rem', borderRadius: '10px', fontWeight: 600, cursor: 'pointer', fontSize: '0.95rem',
-                    background: tab === 'active' ? 'linear-gradient(135deg, #10b981, #059669)' : 'rgba(255,255,255,0.05)',
-                    color: '#fff', border: tab === 'active' ? 'none' : '1px solid rgba(255,255,255,0.1)',
+                    background: tab === 'active' ? '#10B981' : '#FFFFFF',
+                    color: tab === 'active' ? '#fff' : '#64748B', border: tab === 'active' ? '1px solid #10B981' : '1px solid #E2E8F0',
+                    boxShadow: tab === 'active' ? '0 4px 12px rgba(16,185,129,0.2)' : 'none',
                     position: 'relative'
                 }}>
                     Active Patients
                     {activeAdmissions.length > 0 && (
-                        <span style={{ marginLeft: '0.5rem', background: '#ef4444', borderRadius: '99px', padding: '2px 8px', fontSize: '0.78rem' }}>
+                        <span style={{ marginLeft: '0.5rem', background: tab === 'active' ? '#fff' : '#EF4444', color: tab === 'active' ? '#10B981' : '#fff', borderRadius: '99px', padding: '2px 8px', fontSize: '0.78rem' }}>
                             {activeAdmissions.length}
                         </span>
                     )}
                 </button>
                 <button onClick={() => setTab('forecast')} style={{
                     padding: '0.65rem 1.5rem', borderRadius: '10px', fontWeight: 600, cursor: 'pointer', fontSize: '0.95rem',
-                    background: tab === 'forecast' ? 'linear-gradient(135deg, #3b82f6, #2563eb)' : 'rgba(255,255,255,0.05)',
-                    color: '#fff', border: tab === 'forecast' ? 'none' : '1px solid rgba(255,255,255,0.1)'
+                    background: tab === 'forecast' ? '#8B5CF6' : '#FFFFFF',
+                    color: tab === 'forecast' ? '#fff' : '#64748B', border: tab === 'forecast' ? '1px solid #8B5CF6' : '1px solid #E2E8F0',
+                    boxShadow: tab === 'forecast' ? '0 4px 12px rgba(139,92,246,0.2)' : 'none'
                 }}>🔮 Demand Forecast</button>
             </div>
 
             {tab === 'admit' && (
                 <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '2rem' }}>
                     {/* Progress sidebar */}
-                    <div className="card" style={{ borderColor: 'rgba(99,102,241,0.3)', alignSelf: 'start' }}>
-                        <h3 style={{ fontSize: '0.95rem', color: '#a5b4fc', margin: '0 0 1rem 0' }}>Admission Steps</h3>
+                    <div className="card" style={{ borderColor: '#E2E8F0', alignSelf: 'start', background: '#FFFFFF' }}>
+                        <h3 style={{ fontSize: '1.05rem', color: '#1E293B', margin: '0 0 1rem 0' }}>Admission Steps</h3>
                         {step(1, 'Patient Details', !sel.patientName, sel.patientName)}
                         {step(2, 'Select Room Type', sel.patientName && !sel.roomType, !!sel.roomType)}
                         {step(3, 'Select Room', !!sel.roomType && !sel.roomId, !!sel.roomId)}
@@ -225,15 +254,15 @@ export default function AdmissionPage() {
                             {step(6, 'Select Doctor', !!sel.docCatId && !sel.doctorId, !!sel.doctorId)}
                             {step(7, 'Select Nurses', !!sel.doctorId, sel.nurseIds.length > 0)}
                         </> : sel.bedId && (
-                            <div style={{ padding: '0.6rem 1rem', marginTop: '0.5rem', borderRadius: '8px', background: 'rgba(234,179,8,0.08)', border: '1px solid rgba(234,179,8,0.2)', fontSize: '0.8rem', color: '#fbbf24' }}>
+                            <div style={{ padding: '0.6rem 1rem', marginTop: '0.5rem', borderRadius: '8px', background: '#FEF3C7', border: '1px solid #FDE68A', fontSize: '0.85rem', color: '#D97706' }}>
                                 Room type: Bed-only assignment. No doctor/nurse locking required.
                             </div>
                         )}
                     </div>
 
                     {/* Main form */}
-                    <div className="card" style={{ borderColor: 'rgba(239,68,68,0.3)' }}>
-                        <h2 className="card-title" style={{ color: '#fca5a5', borderBottomColor: 'rgba(239,68,68,0.2)' }}>
+                    <div className="card" style={{ borderColor: '#E2E8F0', background: '#FFFFFF' }}>
+                        <h2 className="card-title" style={{ color: '#1E293B', borderBottomColor: '#E2E8F0' }}>
                             🏥 Admit Patient & Lock Resources
                         </h2>
 
@@ -241,15 +270,15 @@ export default function AdmissionPage() {
 
                         <form onSubmit={handleSubmit}>
                             {/* Step 1: Patient Details */}
-                            <div style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
-                                <div style={{ fontSize: '0.8rem', color: '#818cf8', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 1 — Patient Details</div>
+                            <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
+                                <div style={{ fontSize: '0.8rem', color: '#0066FF', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 1 — Patient Details</div>
                                 <div className="form-group" style={{ marginBottom: '0.75rem' }}>
-                                    <label>Patient Full Name *</label>
+                                    <label style={{ color: '#1E293B', fontWeight: 500 }}>Patient Full Name *</label>
                                     <input type="text" className="form-control" placeholder="e.g. John Doe"
                                         value={sel.patientName} onChange={e => setSel(s => ({ ...s, patientName: e.target.value }))} required />
                                 </div>
                                 <div className="form-group" style={{ marginBottom: 0 }}>
-                                    <label>Condition / Illness</label>
+                                    <label style={{ color: '#1E293B', fontWeight: 500 }}>Condition / Illness</label>
                                     <input type="text" className="form-control" placeholder="e.g. Cardiac arrest"
                                         value={sel.illness} onChange={e => setSel(s => ({ ...s, illness: e.target.value }))} />
                                 </div>
@@ -257,8 +286,8 @@ export default function AdmissionPage() {
 
                             {/* Step 2: Room Type */}
                             {sel.patientName && (
-                                <div style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
-                                    <div style={{ fontSize: '0.8rem', color: '#818cf8', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 2 — Room Type</div>
+                                <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
+                                    <div style={{ fontSize: '0.8rem', color: '#0066FF', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 2 — Room Type</div>
                                     <div className="form-group" style={{ marginBottom: 0 }}>
                                         <label>Select Room Category</label>
                                         <select className="form-control" value={sel.roomType || ''} onChange={e => {
@@ -273,7 +302,7 @@ export default function AdmissionPage() {
                                             ))}
                                         </select>
                                         {sel.roomType && (
-                                            <small style={{ color: isHighCare ? '#a5b4fc' : '#fbbf24', marginTop: '0.4rem', display: 'block' }}>
+                                            <small style={{ color: isHighCare ? '#0066FF' : '#D97706', marginTop: '0.4rem', display: 'block' }}>
                                                 {isHighCare ? '⭐ High-care room: Doctor & Nurse assignment available' : '📋 Standard room: Bed assignment only'}
                                             </small>
                                         )}
@@ -283,8 +312,8 @@ export default function AdmissionPage() {
 
                             {/* Step 3: Room */}
                             {sel.roomType && rooms.length > 0 && (
-                                <div style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
-                                    <div style={{ fontSize: '0.8rem', color: '#818cf8', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 3 — Select Room</div>
+                                <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
+                                    <div style={{ fontSize: '0.8rem', color: '#0066FF', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 3 — Select Room</div>
                                     <div className="form-group" style={{ marginBottom: 0 }}>
                                         <label>Available Rooms (with vacant beds)</label>
                                         <select className="form-control" value={sel.roomId} onChange={e => onRoomChange(e.target.value)} required>
@@ -301,8 +330,8 @@ export default function AdmissionPage() {
 
                             {/* Step 4: Bed */}
                             {sel.roomId && beds.length > 0 && (
-                                <div style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
-                                    <div style={{ fontSize: '0.8rem', color: '#f87171', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 4 — Assign Bed</div>
+                                <div style={{ background: '#FEF2F2', border: '1px solid #FECACA', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
+                                    <div style={{ fontSize: '0.8rem', color: '#EF4444', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 4 — Assign Bed</div>
                                     <div className="form-group" style={{ marginBottom: 0 }}>
                                         <label>Select Vacant Bed</label>
                                         <select className="form-control" value={sel.bedId} onChange={e => onBedChange(e.target.value)} required>
@@ -316,8 +345,8 @@ export default function AdmissionPage() {
                             {/* Steps 5-7: Doctor & Nurse (only for high-care rooms) */}
                             {sel.bedId && isHighCare && (
                                 <>
-                                    <div style={{ background: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
-                                        <div style={{ fontSize: '0.8rem', color: '#60a5fa', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 5 & 6 — Assign Doctor</div>
+                                    <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
+                                        <div style={{ fontSize: '0.8rem', color: '#0066FF', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 5 & 6 — Assign Doctor</div>
                                         <div className="form-group">
                                             <label>Doctor Specialty / Category</label>
                                             <select className="form-control" value={sel.docCatId} onChange={e => onDocCatChange(e.target.value)}>
@@ -332,21 +361,21 @@ export default function AdmissionPage() {
                                                     <option value="">-- Select Doctor --</option>
                                                     {doctors.map(d => <option key={d.id} value={d.id}>Dr. {d.name}</option>)}
                                                 </select>
-                                                {doctors.length === 0 && <small style={{ color: '#f87171' }}>No available doctors in this category.</small>}
+                                                {doctors.length === 0 && <small style={{ color: '#EF4444' }}>No available doctors in this category.</small>}
                                             </div>
                                         )}
                                     </div>
 
                                     {sel.doctorId !== undefined && sel.bedId && (
-                                        <div style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
-                                            <div style={{ fontSize: '0.8rem', color: '#34d399', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 7 — Assign Nurses (Optional)</div>
+                                        <div style={{ background: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
+                                            <div style={{ fontSize: '0.8rem', color: '#10B981', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step 7 — Assign Nurses (Optional)</div>
                                             {nurses.length === 0 ? (
-                                                <p style={{ color: '#94a3b8', margin: 0, fontSize: '0.9rem' }}>No available nurses in the system.</p>
+                                                <p style={{ color: '#64748B', margin: 0, fontSize: '0.9rem' }}>No available nurses in the system.</p>
                                             ) : (
                                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
                                                     {nurses.map(n => (
-                                                        <label key={n.id} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: '#e2e8f0', fontSize: '0.9rem' }}>
-                                                            <input type="checkbox" checked={sel.nurseIds.includes(n.id)} onChange={() => toggleNurse(n.id)} />
+                                                        <label key={n.id} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: '#1E293B', fontSize: '0.9rem' }}>
+                                                            <input type="checkbox" checked={sel.nurseIds.includes(n.id)} onChange={() => toggleNurse(n.id)} style={{ accentColor: '#10B981', width: '16px', height: '16px' }} />
                                                             {n.name}
                                                         </label>
                                                     ))}
@@ -357,42 +386,68 @@ export default function AdmissionPage() {
                                 </>
                             )}
 
-                            {/* Equipment Section — shown for ALL room types once bed is selected */}
+                                    {/* Equipment Section — multi-slot */}
                             {sel.bedId && (
-                                <div style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
-                                    <div style={{ fontSize: '0.8rem', color: '#fbbf24', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>🔧 Equipment Allocation (Optional)</div>
+                                <div style={{ background: '#FFFBEB', border: '1px solid #FDE68A', borderRadius: '10px', padding: '1rem', marginBottom: '1.25rem' }}>
+                                    <div style={{ fontSize: '0.8rem', color: '#D97706', fontWeight: 600, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>🔧 Equipment Allocation (Optional)</div>
+
                                     {equipCats.length === 0 ? (
-                                        <p style={{ color: '#64748b', margin: 0, fontSize: '0.85rem' }}>No equipment inventory found. Add equipment in Facility Capacity first.</p>
+                                        <p style={{ color: '#64748B', margin: 0, fontSize: '0.85rem' }}>No equipment inventory found. Add equipment in Facility Capacity first.</p>
                                     ) : (
                                         <>
-                                            <div className="form-group">
-                                                <label>Equipment Category</label>
-                                                <select className="form-control" value={sel.equipCat} onChange={e => onEquipCatChange(e.target.value)}>
-                                                    <option value="">-- Select Category --</option>
-                                                    {equipCats.map(c => <option key={c} value={c}>{c}</option>)}
-                                                </select>
-                                            </div>
-                                            {sel.equipCat && (
-                                                <div className="form-group" style={{ marginBottom: 0 }}>
-                                                    <label>Select Equipment</label>
-                                                    <select className="form-control" value={sel.equipmentId} onChange={e => setSel(s => ({ ...s, equipmentId: e.target.value }))}>
-                                                        <option value="">-- Select Equipment --</option>
-                                                        {equipItems.map(ei => (
-                                                            <option key={ei.id} value={ei.id}>
-                                                                {ei.equipmentName} ({ei.availableCount} available)
-                                                            </option>
-                                                        ))}
-                                                    </select>
-                                                    {equipItems.length === 0 && <small style={{ color: '#f87171' }}>No available units in this category.</small>}
+                                            {/* Step A: How many? */}
+                                            <div className="form-group" style={{ marginBottom: '1rem' }}>
+                                                <label style={{ color: '#92400E', fontWeight: 600 }}>How many equipment items do you need to allocate?</label>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.4rem' }}>
+                                                    <input
+                                                        type="number" min="0" max="20"
+                                                        value={sel.equipmentCount}
+                                                        onChange={e => onEquipmentCountChange(e.target.value)}
+                                                        placeholder="e.g. 2"
+                                                        style={{ width: '100px', padding: '0.55rem 0.75rem', borderRadius: '8px', border: '1px solid #FDE68A', fontSize: '1rem', background: '#FFFFFF', color: '#1E293B', outline: 'none' }}
+                                                    />
+                                                    <span style={{ color: '#92400E', fontSize: '0.88rem' }}>
+                                                        {sel.equipmentSlots.length > 0 ? `→ ${sel.equipmentSlots.length} slot${sel.equipmentSlots.length > 1 ? 's' : ''} to fill` : 'Enter 0 to skip equipment'}
+                                                    </span>
                                                 </div>
-                                            )}
+                                            </div>
+
+                                            {/* Step B: Dynamic slots */}
+                                            {sel.equipmentSlots.map((slot, idx) => (
+                                                <div key={idx} style={{ background: '#FFFFFF', border: '1px solid #FDE68A', borderRadius: '8px', padding: '0.85rem', marginBottom: '0.75rem' }}>
+                                                    <div style={{ fontSize: '0.78rem', color: '#D97706', fontWeight: 700, marginBottom: '0.6rem' }}>Equipment #{idx + 1}</div>
+                                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
+                                                        <div className="form-group" style={{ marginBottom: 0 }}>
+                                                            <label>Category</label>
+                                                            <select className="form-control" value={slot.cat} onChange={e => onSlotCatChange(idx, e.target.value)}>
+                                                                <option value="">-- Category --</option>
+                                                                {equipCats.map(c => <option key={c} value={c}>{c}</option>)}
+                                                            </select>
+                                                        </div>
+                                                        <div className="form-group" style={{ marginBottom: 0 }}>
+                                                            <label>Equipment</label>
+                                                            <select className="form-control" value={slot.itemId} onChange={e => onSlotItemChange(idx, e.target.value)} disabled={!slot.cat}>
+                                                                <option value="">-- Select --</option>
+                                                                {(slot.items || []).map(ei => (
+                                                                    <option key={ei.id} value={ei.id}>
+                                                                        {ei.equipmentName} ({ei.availableCount} avail)
+                                                                    </option>
+                                                                ))}
+                                                            </select>
+                                                            {slot.cat && slot.items && slot.items.length === 0 && (
+                                                                <small style={{ color: '#EF4444' }}>No available units.</small>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
                                         </>
                                     )}
                                 </div>
                             )}
 
                             {sel.bedId && (
-                                <button type="submit" className="btn" style={{ background: 'linear-gradient(135deg, #ef4444, #dc2626)' }} disabled={submitting}>
+                                <button type="submit" className="btn" style={{ background: '#EF4444', color: '#fff', border: 'none' }} disabled={submitting}>
                                     {submitting ? 'Admitting...' : '🔒 Confirm Admission & Lock Resources'}
                                 </button>
                             )}
@@ -403,57 +458,59 @@ export default function AdmissionPage() {
 
             {tab === 'active' && (
                 <div>
-                    <h2 style={{ fontSize: '1.2rem', color: '#e2e8f0', marginBottom: '1.5rem' }}>
+                    <h2 style={{ fontSize: '1.2rem', color: '#1E293B', marginBottom: '1.5rem', fontWeight: 600 }}>
                         Currently Active Patients ({activeAdmissions.length})
                     </h2>
                     {activeAdmissions.length === 0 ? (
-                        <div className="card" style={{ textAlign: 'center', color: '#94a3b8' }}>
+                        <div className="card" style={{ textAlign: 'center', color: '#64748B', background: '#FFFFFF', border: '1px dashed #E2E8F0' }}>
                             <p style={{ fontSize: '2rem', margin: '0 0 0.5rem' }}>🏥</p>
                             <p>No active admissions. All resources are free.</p>
                         </div>
                     ) : (
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.25rem' }}>
                             {activeAdmissions.map(a => (
-                                <div key={a.id} className="card" style={{ borderColor: 'rgba(239,68,68,0.3)', padding: '1.25rem' }}>
+                                <div key={a.id} className="card" style={{ borderColor: '#E2E8F0', padding: '1.25rem', background: '#FFFFFF', boxShadow: '0 2px 15px rgba(0,0,0,0.03)' }}>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                         <div>
-                                            <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#f8fafc' }}>{a.patientName}</div>
-                                            {a.illness && <div style={{ fontSize: '0.88rem', color: '#fca5a5', marginTop: '2px' }}>{a.illness}</div>}
+                                            <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#1E293B' }}>{a.patientName}</div>
+                                            {a.illness && <div style={{ fontSize: '0.88rem', color: '#64748B', marginTop: '2px' }}>{a.illness}</div>}
                                         </div>
-                                        <span style={{ background: 'rgba(239,68,68,0.15)', color: '#f87171', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '99px', padding: '3px 10px', fontSize: '0.75rem', fontWeight: 600, flexShrink: 0 }}>
+                                        <span style={{ background: '#FEF2F2', color: '#EF4444', border: '1px solid #FECACA', borderRadius: '99px', padding: '3px 10px', fontSize: '0.75rem', fontWeight: 600, flexShrink: 0 }}>
                                             ACTIVE
                                         </span>
                                     </div>
 
                                     <div style={{ marginTop: '1rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
-                                        <div style={{ background: 'rgba(15,23,42,0.5)', borderRadius: '8px', padding: '0.6rem' }}>
-                                            <div style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '2px', textTransform: 'uppercase' }}>Location</div>
-                                            <div style={{ fontSize: '0.9rem', color: '#e2e8f0', fontWeight: 500 }}>{a.roomType}</div>
-                                            <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Room {a.roomNumber} · Bed {a.bedNumber}</div>
+                                        <div style={{ background: '#F8FAFC', borderRadius: '8px', padding: '0.8rem', border: '1px solid #F1F5F9' }}>
+                                            <div style={{ fontSize: '0.72rem', color: '#94A3B8', marginBottom: '4px', textTransform: 'uppercase', fontWeight: 600 }}>Location</div>
+                                            <div style={{ fontSize: '0.9rem', color: '#334155', fontWeight: 600 }}>{a.roomType}</div>
+                                            <div style={{ fontSize: '0.82rem', color: '#64748B' }}>Room {a.roomNumber} · Bed {a.bedNumber}</div>
                                         </div>
-                                        <div style={{ background: 'rgba(15,23,42,0.5)', borderRadius: '8px', padding: '0.6rem' }}>
-                                            <div style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '2px', textTransform: 'uppercase' }}>Assigned Staff</div>
+                                        <div style={{ background: '#F8FAFC', borderRadius: '8px', padding: '0.8rem', border: '1px solid #F1F5F9' }}>
+                                            <div style={{ fontSize: '0.72rem', color: '#94A3B8', marginBottom: '4px', textTransform: 'uppercase', fontWeight: 600 }}>Assigned Staff</div>
                                             {a.doctorName
-                                                ? <div style={{ fontSize: '0.9rem', color: '#60a5fa', fontWeight: 500 }}>Dr. {a.doctorName}</div>
-                                                : <div style={{ fontSize: '0.85rem', color: '#64748b' }}>No doctor locked</div>
+                                                ? <div style={{ fontSize: '0.9rem', color: '#0066FF', fontWeight: 600 }}>Dr. {a.doctorName}</div>
+                                                : <div style={{ fontSize: '0.85rem', color: '#94A3B8' }}>No doctor locked</div>
                                             }
                                             {a.nurseCount > 0
-                                                ? <div style={{ fontSize: '0.82rem', color: '#34d399' }}>{a.nurseCount} Nurse{a.nurseCount > 1 ? 's' : ''} locked</div>
-                                                : <div style={{ fontSize: '0.82rem', color: '#64748b' }}>No nurses locked</div>
+                                                ? <div style={{ fontSize: '0.82rem', color: '#10B981', fontWeight: 500 }}>{a.nurseCount} Nurse{a.nurseCount > 1 ? 's' : ''} locked</div>
+                                                : <div style={{ fontSize: '0.82rem', color: '#94A3B8' }}>No nurses locked</div>
                                             }
                                         </div>
                                         {a.equipmentName && (
-                                            <div style={{ background: 'rgba(15,23,42,0.5)', borderRadius: '8px', padding: '0.6rem', gridColumn: '1 / -1' }}>
-                                                <div style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '2px', textTransform: 'uppercase' }}>Equipment Locked</div>
-                                                <div style={{ fontSize: '0.9rem', color: '#fbbf24', fontWeight: 500 }}>🔧 {a.equipmentName}</div>
-                                                <div style={{ fontSize: '0.78rem', color: '#94a3b8' }}>{a.equipmentCategory}</div>
+                                            <div style={{ background: '#FFFBEB', borderRadius: '8px', padding: '0.8rem', gridColumn: '1 / -1', border: '1px solid #FEF3C7' }}>
+                                                <div style={{ fontSize: '0.72rem', color: '#D97706', marginBottom: '4px', textTransform: 'uppercase', fontWeight: 600 }}>Equipment Locked</div>
+                                                <div style={{ fontSize: '0.9rem', color: '#B45309', fontWeight: 600 }}>🔧 {a.equipmentName}</div>
+                                                <div style={{ fontSize: '0.78rem', color: '#D97706' }}>{a.equipmentCategory}</div>
                                             </div>
                                         )}
                                     </div>
 
                                     <button
                                         onClick={() => handleDischarge(a.id, a.patientName)}
-                                        style={{ marginTop: '1rem', width: '100%', padding: '0.6rem', borderRadius: '8px', background: 'rgba(239,68,68,0.1)', color: '#f87171', border: '1px solid rgba(239,68,68,0.3)', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem' }}
+                                        style={{ marginTop: '1rem', width: '100%', padding: '0.7rem', borderRadius: '8px', background: '#FFFFFF', color: '#EF4444', border: '1px solid #EF4444', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', transition: 'all 0.2s' }}
+                                        onMouseEnter={e => { e.target.style.background = '#FEF2F2'; }}
+                                        onMouseLeave={e => { e.target.style.background = '#FFFFFF'; }}
                                     >
                                         Discharge & Unlock Resources
                                     </button>
@@ -465,18 +522,18 @@ export default function AdmissionPage() {
             )}
 
             {tab === 'forecast' && (
-                <div className="card" style={{ borderColor: 'rgba(59,130,246,0.3)', padding: '1.5rem' }}>
+                <div className="card" style={{ borderColor: '#E2E8F0', padding: '1.5rem', background: '#FFFFFF' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                         <div>
-                            <h2 style={{ fontSize: '1.4rem', color: '#60a5fa', margin: '0 0 0.5rem 0' }}>🔮 3-Day Equipment Demand Forecast</h2>
-                            <p style={{ color: '#94a3b8', margin: 0, fontSize: '0.95rem' }}>
+                            <h2 style={{ fontSize: '1.4rem', color: '#1E293B', margin: '0 0 0.5rem 0' }}>🔮 3-Day Equipment Demand Forecast</h2>
+                            <p style={{ color: '#64748B', margin: 0, fontSize: '0.95rem' }}>
                                 Analyzes hospital historical data strictly against the Random Forest ML Pipeline to predict future resource needs.
                             </p>
                         </div>
                         <button 
                             onClick={handleAnalyze} 
                             disabled={analyzing}
-                            style={{ background: 'linear-gradient(135deg, #3b82f6, #2563eb)', color: '#fff', border: 'none', padding: '0.85rem 1.75rem', borderRadius: '8px', fontWeight: 600, cursor: 'pointer', fontSize: '1rem', minWidth: '180px' }}>
+                            style={{ background: '#8B5CF6', color: '#fff', border: 'none', padding: '0.85rem 1.75rem', borderRadius: '8px', fontWeight: 600, cursor: 'pointer', fontSize: '1rem', minWidth: '180px' }}>
                             {analyzing ? '⏳ Analyzing Data...' : '📊 Analyze Demand'}
                         </button>
                     </div>
@@ -484,23 +541,23 @@ export default function AdmissionPage() {
                     {forecastMsg && <div className={`alert alert-${forecastMsg.type}`}>{forecastMsg.text}</div>}
 
                     {predictions.length > 0 && (
-                        <div style={{ marginTop: '1.5rem', background: 'rgba(15,23,42,0.6)', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)' }}>
+                        <div style={{ marginTop: '1.5rem', background: '#FFFFFF', borderRadius: '12px', overflow: 'hidden', border: '1px solid #E2E8F0', boxShadow: '0 4px 6px rgba(0,0,0,0.02)' }}>
                             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                                 <thead>
-                                    <tr style={{ background: 'rgba(255,255,255,0.05)', textAlign: 'left' }}>
-                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#a5b4fc', fontWeight: 600 }}>Equipment Name</th>
-                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', fontWeight: 600 }}>Currently Available</th>
-                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#fbbf24', fontWeight: 600 }}>Predicted Demand (Next 3 Days)</th>
-                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#a5b4fc', fontWeight: 600 }}>Status</th>
+                                    <tr style={{ background: '#F8FAFC', textAlign: 'left' }}>
+                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid #E2E8F0', color: '#475569', fontWeight: 600 }}>Equipment Name</th>
+                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid #E2E8F0', color: '#475569', fontWeight: 600 }}>Currently Available</th>
+                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid #E2E8F0', color: '#475569', fontWeight: 600 }}>Predicted Demand (Next 3 Days)</th>
+                                        <th style={{ padding: '1.25rem', borderBottom: '1px solid #E2E8F0', color: '#475569', fontWeight: 600 }}>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {predictions.map((p, idx) => {
                                         if (p.error) {
                                             return (
-                                                <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                                                    <td style={{ padding: '1rem', color: '#f8fafc' }}>{p.equipment}</td>
-                                                    <td colSpan="3" style={{ padding: '1rem', color: '#f87171' }}>Error: {p.error}</td>
+                                                <tr key={idx} style={{ borderBottom: '1px solid #E2E8F0' }}>
+                                                    <td style={{ padding: '1rem', color: '#1E293B' }}>{p.equipment}</td>
+                                                    <td colSpan="3" style={{ padding: '1rem', color: '#EF4444' }}>Error: {p.error}</td>
                                                 </tr>
                                             );
                                         }
@@ -510,15 +567,15 @@ export default function AdmissionPage() {
                                         const isShortage = demand > available;
                                         
                                         return (
-                                            <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', background: isShortage ? 'rgba(239,68,68,0.05)' : 'transparent' }}>
-                                                <td style={{ padding: '1.25rem', color: '#f8fafc', fontWeight: 500, fontSize: '1.05rem' }}>{p.equipment}</td>
-                                                <td style={{ padding: '1.25rem', color: '#cbd5e1', fontSize: '1.05rem' }}>{available} units</td>
-                                                <td style={{ padding: '1.25rem', color: '#fbbf24', fontWeight: 'bold', fontSize: '1.1rem' }}>{demand} units</td>
+                                            <tr key={idx} style={{ borderBottom: '1px solid #E2E8F0', background: isShortage ? '#FEF2F2' : 'transparent' }}>
+                                                <td style={{ padding: '1.25rem', color: '#1E293B', fontWeight: 500, fontSize: '1.05rem' }}>{p.equipment}</td>
+                                                <td style={{ padding: '1.25rem', color: '#64748B', fontSize: '1.05rem' }}>{available} units</td>
+                                                <td style={{ padding: '1.25rem', color: isShortage ? '#EF4444' : '#1E293B', fontWeight: 'bold', fontSize: '1.1rem' }}>{demand} units</td>
                                                 <td style={{ padding: '1.25rem' }}>
                                                     {isShortage ? (
-                                                        <span style={{ background: 'rgba(239,68,68,0.2)', color: '#fca5a5', padding: '6px 12px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600 }}>⚠️ Shortage Likely</span>
+                                                        <span style={{ background: '#FEE2E2', color: '#B91C1C', padding: '6px 12px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600 }}>⚠️ Shortage Likely</span>
                                                     ) : (
-                                                        <span style={{ background: 'rgba(16,185,129,0.2)', color: '#6ee7b7', padding: '6px 12px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600 }}>✅ Sufficient</span>
+                                                        <span style={{ background: '#D1FAE5', color: '#047857', padding: '6px 12px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600 }}>✅ Sufficient</span>
                                                     )}
                                                 </td>
                                             </tr>

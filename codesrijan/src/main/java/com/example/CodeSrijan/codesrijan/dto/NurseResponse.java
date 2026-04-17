@@ -18,13 +18,18 @@ public class NurseResponse {
     public void setNurses(List<NurseDetails> nurses) { this.nurses = nurses; }
 
     public static class NurseDetails {
+        private Long id;
         private String name;
         private Integer experienceYears;
 
-        public NurseDetails(String name, Integer experienceYears) {
+        public NurseDetails(Long id, String name, Integer experienceYears) {
+            this.id = id;
             this.name = name;
             this.experienceYears = experienceYears;
         }
+
+        public Long getId() { return id; }
+        public void setId(Long id) { this.id = id; }
 
         public String getName() { return name; }
         public void setName(String name) { this.name = name; }

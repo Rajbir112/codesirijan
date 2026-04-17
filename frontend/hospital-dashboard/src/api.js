@@ -53,6 +53,15 @@ export const addDoctorProfile = async (data) => {
     return res.text();
 };
 
+export const deleteDoctorProfile = async (id) => {
+    const res = await fetch(`${DOC_API}/${id}`, { method: 'DELETE' });
+    if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || 'Failed to delete doctor');
+    }
+    return res.text();
+};
+
 // ─── Nurse ────────────────────────────────────────────────
 const NURSE_API = `${BASE}/nurses`;
 
@@ -69,6 +78,15 @@ export const addNurseProfile = async (data) => {
         body: JSON.stringify(data)
     });
     if (!res.ok) throw new Error('Failed to add nurse');
+    return res.text();
+};
+
+export const deleteNurseProfile = async (id) => {
+    const res = await fetch(`${NURSE_API}/${id}`, { method: 'DELETE' });
+    if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || 'Failed to delete nurse');
+    }
     return res.text();
 };
 
