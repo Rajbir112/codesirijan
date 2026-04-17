@@ -9,94 +9,110 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Fires every 3 minutes.
- * At fire time  m  (current minute):
- *   - stored minute      = m - 1
- *   - patients_last_1min = admissions in [m-2, m-1]
- *   - patients_last_5min = admissions in [m-6, m-1]
- *   - usage_last_1min    = this-equipment locks in [m-2, m-1]
- *   - usage_last_5min    = this-equipment locks in [m-6, m-1]
- *   - value              = this-equipment locks in [m-1, m]   ← label/target
+ * Fires every 3 hours.
  *
- * One row is written per equipment item that has count > 0.
+ * When the job fires at  recorded_at = R:
+ *
+ *   date  = R.toLocalDate() - 3 days        ← reference date
+ *
+ *   Historical windows (features):
+ *     total_patients_last_day     = admissions in [date-1, date]
+ *     total_patients_last_7_days  = admissions in [date-7, date]
+ *     total_usage_last_day        = eq locked  in [date-1, date]
+ *     total_usage_last_7_days     = eq locked  in [date-7, date]
+ *
+ *   Forward window (label / target):
+ *     value  = eq locked in [date, R]   ← what the ML model should predict
+ *
+ *   Calendar features:
+ *     is_weekend = is [date] Saturday or Sunday?
+ *     is_holiday = does [date → R] contain any Indian public holiday?
+ *
+ * One row is written per equipment item with count > 0.
  */
 @Service
 public class EquipmentSnapshotScheduler {
 
-    @Autowired private EquipmentRepository            equipmentRepo;
+    @Autowired private EquipmentRepository              equipmentRepo;
     @Autowired private EquipmentUsageSnapshotRepository snapshotRepo;
-    @Autowired private PatientAdmissionRepository     admissionRepo;
-    @Autowired private WeatherService                 weatherService;
+    @Autowired private PatientAdmissionRepository       admissionRepo;
+    @Autowired private HolidayService                   holidayService;
 
-    // Every 3 minutes  (3 * 60 * 1000 ms)
-    @Scheduled(fixedRate = 180_000)
+    // Every 3 hours = 3 * 60 * 60 * 1000 ms
+    @Scheduled(fixedRate = 10_800_000)
     public void collectSnapshot() {
 
-        LocalDateTime now     = LocalDateTime.now();
+        LocalDateTime recordedAt = LocalDateTime.now();
+        LocalDate     refDate    = recordedAt.toLocalDate().minusDays(3);
 
-        // Window boundaries
-        LocalDateTime mMinus1 = now.minusMinutes(1);   // m-1
-        LocalDateTime mMinus2 = now.minusMinutes(2);   // m-2
-        LocalDateTime mMinus6 = now.minusMinutes(6);   // m-6
+        System.out.printf("%n[Snapshot] ═══════ Starting cycle ═══════%n");
+        System.out.printf("[Snapshot] recorded_at = %s%n", recordedAt);
+        System.out.printf("[Snapshot] date        = %s%n", refDate);
 
-        // Stored minute value = current_minute - 1  (0-59 wrap)
-        int storedMinute = now.getMinute() - 1;
-        if (storedMinute < 0) storedMinute = 59;
+        // ── Date/time boundaries ──────────────────────────────────────────
+        LocalDateTime dateStart      = refDate.atStartOfDay();                   // Mar 12 00:00
+        LocalDateTime dateMinus1Start = refDate.minusDays(1).atStartOfDay();     // Mar 11 00:00
+        LocalDateTime dateMinus7Start = refDate.minusDays(7).atStartOfDay();     // Mar 05 00:00
 
-        // ── Patient admission counts (same for every equipment row) ──
-        long patientsLast1min = admissionRepo.countByCreatedAtBetween(mMinus2, mMinus1);
-        long patientsLast5min = admissionRepo.countByCreatedAtBetween(mMinus6, mMinus1);
+        // ── Patient counts (same for all equipment rows) ─────────────────
+        long patientsLastDay    = admissionRepo.countByCreatedAtBetween(dateMinus1Start, dateStart);
+        long patientsLast7Days  = admissionRepo.countByCreatedAtBetween(dateMinus7Start, dateStart);
 
-        // ── Fetch weather once per cycle ──
-        String weather = weatherService.getCurrentWeather();
-        System.out.println("[Snapshot] Weather: " + weather);
+        // ── Calendar flags ────────────────────────────────────────────────
+        DayOfWeek dow       = refDate.getDayOfWeek();
+        boolean isWeekend   = (dow == DayOfWeek.SATURDAY || dow == DayOfWeek.SUNDAY);
+        boolean isHoliday   = holidayService.hasHolidayInRange(refDate, recordedAt.toLocalDate());
 
-        // ── Only equipment items that exist in inventory (count > 0) ──
+        System.out.printf("[Snapshot] is_weekend=%b  is_holiday=%b  patients_day=%d  patients_7d=%d%n",
+                isWeekend, isHoliday, patientsLastDay, patientsLast7Days);
+
+        // ── Equipment rows ────────────────────────────────────────────────
         List<Equipment> active = equipmentRepo.findAll().stream()
                 .filter(e -> e.getCount() > 0)
                 .collect(Collectors.toList());
 
         if (active.isEmpty()) {
-            System.out.println("[Snapshot] No active equipment found – skipping.");
+            System.out.println("[Snapshot] No active equipment – skipping.");
             return;
         }
 
         for (Equipment eq : active) {
 
-            long usageLast1min = admissionRepo.countByEquipmentAndCreatedAtBetween(
-                    eq.getId(), mMinus2, mMinus1);
+            // Historical usage (features)
+            long usageLastDay   = admissionRepo.countByEquipmentAndCreatedAtBetween(
+                    eq.getId(), dateMinus1Start, dateStart);
+            long usageLast7Days = admissionRepo.countByEquipmentAndCreatedAtBetween(
+                    eq.getId(), dateMinus7Start, dateStart);
 
-            long usageLast5min = admissionRepo.countByEquipmentAndCreatedAtBetween(
-                    eq.getId(), mMinus6, mMinus1);
-
-            // label: how many times was this equipment locked in [m-1, now]
+            // Forward usage (label) — [date → recorded_at]
             long labelValue = admissionRepo.countByEquipmentAndCreatedAtBetween(
-                    eq.getId(), mMinus1, now);
+                    eq.getId(), dateStart, recordedAt);
 
             EquipmentUsageSnapshot snap = new EquipmentUsageSnapshot();
             snap.setEquipment(eq.getEquipmentName());
-            snap.setMinute(storedMinute);
-            snap.setRecordedAt(now);
-            snap.setTotalPatientsLast1min(patientsLast1min);
-            snap.setTotalPatientsLast5min(patientsLast5min);
-            snap.setTotalUsageLast1min(usageLast1min);
-            snap.setTotalUsageLast5min(usageLast5min);
+            snap.setDate(refDate);
+            snap.setRecordedAt(recordedAt);
+            snap.setTotalPatientsLastDay(patientsLastDay);
+            snap.setTotalPatientsLast7Days(patientsLast7Days);
+            snap.setTotalUsageLastDay(usageLastDay);
+            snap.setTotalUsageLast7Days(usageLast7Days);
             snap.setValue(labelValue);
-            snap.setWeather(weather);
+            snap.setIsHoliday(isHoliday);
+            snap.setIsWeekend(isWeekend);
 
             snapshotRepo.save(snap);
 
-            System.out.printf("[Snapshot] %-40s | min=%-2d | pts1m=%d pts5m=%d | use1m=%d use5m=%d | val=%d%n",
-                    eq.getEquipmentName(), storedMinute,
-                    patientsLast1min, patientsLast5min,
-                    usageLast1min, usageLast5min, labelValue);
+            System.out.printf("[Snapshot] %-40s | use_day=%d use_7d=%d | val=%d%n",
+                    eq.getEquipmentName(), usageLastDay, usageLast7Days, labelValue);
         }
 
-        System.out.printf("[Snapshot] Done at %s – %d rows written.%n", now, active.size());
+        System.out.printf("[Snapshot] Done — %d rows written.%n%n", active.size());
     }
 }

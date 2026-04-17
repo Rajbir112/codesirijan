@@ -1,6 +1,7 @@
 package com.example.CodeSrijan.codesrijan.entity;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,65 +12,74 @@ public class EquipmentUsageSnapshot {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /** equipment name e.g. "Ventilators" */
+    /** Equipment name e.g. "Ventilators" */
     @Column(name = "equipment", nullable = false)
     private String equipment;
 
-    /** minute value = (current_minute - 1), i.e. m-1 in 0-59 range */
-    @Column(name = "minute", nullable = false)
-    private Integer minute;
+    /**
+     * Reference date = recorded_at - 3 days.
+     * All historical windows are relative to this date.
+     */
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
 
-    /** exact timestamp when this snapshot was recorded */
+    /** Exact timestamp when this snapshot row was saved */
     @Column(name = "recorded_at")
     private LocalDateTime recordedAt;
 
-    /** patients admitted in window [now-2min, now-1min] */
-    @Column(name = "total_patients_last_1min")
-    private Long totalPatientsLast1min;
+    /** Total patient admissions in [date-1, date] */
+    @Column(name = "total_patients_last_day")
+    private Long totalPatientsLastDay;
 
-    /** patients admitted in window [now-6min, now-1min] */
-    @Column(name = "total_patients_last_5min")
-    private Long totalPatientsLast5min;
+    /** Total patient admissions in [date-7, date] */
+    @Column(name = "total_patients_last_7_days")
+    private Long totalPatientsLast7Days;
 
-    /** times THIS equipment was locked in window [now-2min, now-1min] */
-    @Column(name = "total_usage_last_1min")
-    private Long totalUsageLast1min;
+    /** Times THIS equipment was locked in [date-1, date] */
+    @Column(name = "total_usage_last_day")
+    private Long totalUsageLastDay;
 
-    /** times THIS equipment was locked in window [now-6min, now-1min] */
-    @Column(name = "total_usage_last_5min")
-    private Long totalUsageLast5min;
+    /** Times THIS equipment was locked in [date-7, date] */
+    @Column(name = "total_usage_last_7_days")
+    private Long totalUsageLast7Days;
 
     /**
-     * Target / label:
-     * times THIS equipment was locked in window [now-1min, now]
+     * TARGET / LABEL:
+     * Times THIS equipment was locked in [date, recorded_at] (forward 3-day window).
      */
     @Column(name = "value")
     private Long value;
 
-    /** Weather at snapshot time e.g. "Partly Cloudy, +34°C" */
-    @Column(name = "weather")
-    private String weather;
+    /** True if any Indian public holiday falls in [date, recorded_at] */
+    @Column(name = "is_holiday")
+    private Boolean isHoliday;
+
+    /** True if the reference date is Saturday or Sunday */
+    @Column(name = "is_weekend")
+    private Boolean isWeekend;
 
     public EquipmentUsageSnapshot() {}
 
-    // ── Getters & Setters ─────────────────────────────────────
+    // ── Getters & Setters ──────────────────────────────────────────────
     public Long getId() { return id; }
     public String getEquipment() { return equipment; }
     public void setEquipment(String e) { this.equipment = e; }
-    public Integer getMinute() { return minute; }
-    public void setMinute(Integer m) { this.minute = m; }
+    public LocalDate getDate() { return date; }
+    public void setDate(LocalDate d) { this.date = d; }
     public LocalDateTime getRecordedAt() { return recordedAt; }
     public void setRecordedAt(LocalDateTime t) { this.recordedAt = t; }
-    public Long getTotalPatientsLast1min() { return totalPatientsLast1min; }
-    public void setTotalPatientsLast1min(Long v) { this.totalPatientsLast1min = v; }
-    public Long getTotalPatientsLast5min() { return totalPatientsLast5min; }
-    public void setTotalPatientsLast5min(Long v) { this.totalPatientsLast5min = v; }
-    public Long getTotalUsageLast1min() { return totalUsageLast1min; }
-    public void setTotalUsageLast1min(Long v) { this.totalUsageLast1min = v; }
-    public Long getTotalUsageLast5min() { return totalUsageLast5min; }
-    public void setTotalUsageLast5min(Long v) { this.totalUsageLast5min = v; }
+    public Long getTotalPatientsLastDay() { return totalPatientsLastDay; }
+    public void setTotalPatientsLastDay(Long v) { this.totalPatientsLastDay = v; }
+    public Long getTotalPatientsLast7Days() { return totalPatientsLast7Days; }
+    public void setTotalPatientsLast7Days(Long v) { this.totalPatientsLast7Days = v; }
+    public Long getTotalUsageLastDay() { return totalUsageLastDay; }
+    public void setTotalUsageLastDay(Long v) { this.totalUsageLastDay = v; }
+    public Long getTotalUsageLast7Days() { return totalUsageLast7Days; }
+    public void setTotalUsageLast7Days(Long v) { this.totalUsageLast7Days = v; }
     public Long getValue() { return value; }
     public void setValue(Long v) { this.value = v; }
-    public String getWeather() { return weather; }
-    public void setWeather(String w) { this.weather = w; }
+    public Boolean getIsHoliday() { return isHoliday; }
+    public void setIsHoliday(Boolean h) { this.isHoliday = h; }
+    public Boolean getIsWeekend() { return isWeekend; }
+    public void setIsWeekend(Boolean w) { this.isWeekend = w; }
 }
