@@ -48,7 +48,7 @@ public class EquipmentSnapshotScheduler {
     @Autowired private PatientAdmissionRepository       admissionRepo;
     @Autowired private HolidayService                   holidayService;
 
-    private static final String CSV_PATH   = "d:\\codesirijan\\new_data.csv";
+    private static final String CSV_PATH   = "c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan\\new_data.csv";
     private static final int    BATCH_SIZE = 50;   // Increased so you can observe row accumulation in the DB
 
     // TODO: change back to 10_800_000 (3 hours) for production
@@ -185,9 +185,9 @@ public class EquipmentSnapshotScheduler {
     private void triggerPythonTraining() {
         System.out.println("[Snapshot] ► Triggering Python training ...");
         try {
-            ProcessBuilder pb = new ProcessBuilder("python", "d:\\codesirijan\\train.py");
+            ProcessBuilder pb = new ProcessBuilder("D:\\Python312\\python.exe", "c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan\\train.py");
             pb.redirectErrorStream(true);   // merge stderr into stdout
-            pb.directory(new java.io.File("d:\\codesirijan")); // working directory
+            pb.directory(new java.io.File("c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan")); // working directory
             Process process = pb.start();
 
             // Stream Python output to Spring Boot console in a background thread

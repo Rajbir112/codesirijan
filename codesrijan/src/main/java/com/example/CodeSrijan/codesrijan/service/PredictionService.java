@@ -77,8 +77,8 @@ public class PredictionService {
             ObjectMapper mapper = new ObjectMapper();
             String jsonInput = mapper.writeValueAsString(requests);
 
-            ProcessBuilder pb = new ProcessBuilder("python", "d:\\codesirijan\\predict.py");
-            pb.directory(new java.io.File("d:\\codesirijan"));
+            ProcessBuilder pb = new ProcessBuilder("D:\\Python312\\python.exe", "c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan\\predict.py");
+            pb.directory(new java.io.File("c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan"));
             Process process = pb.start();
 
             try (java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(process.getOutputStream())) {
@@ -116,7 +116,7 @@ public class PredictionService {
                 activeEq.stream()
                         .filter(e -> e.getEquipmentName().equals(resp.getEquipment()))
                         .findFirst()
-                        .ifPresent(e -> resp.setCurrentlyAvailable(e.getCount()));
+                        .ifPresent(e -> resp.setCurrentlyAvailable(e.getAvailableCount()));
             }
 
             return responses;
