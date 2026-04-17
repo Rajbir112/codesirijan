@@ -92,10 +92,17 @@ public class PredictionService {
                 }
             }
             
-            // Try common python paths or just "python"
-            String pythonPath = "python"; 
-            if (new java.io.File("C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python311\\python.exe").exists()) {
-                pythonPath = "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python311\\python.exe";
+            // Try to use 'python3' (standard in Linux/Railway) or just 'python'
+            String pythonPath = "python3";
+            String os = System.getProperty("os.name").toLowerCase();
+            
+            if (os.contains("win")) {
+                pythonPath = "python";
+                // Local Windows fallback for your specific machine
+                java.io.File localWinPath = new java.io.File("C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python311\\python.exe");
+                if (localWinPath.exists()) {
+                    pythonPath = localWinPath.getAbsolutePath();
+                }
             }
 
             ProcessBuilder pb = new ProcessBuilder(pythonPath, scriptFile.getAbsolutePath());
