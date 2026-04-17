@@ -25,6 +25,9 @@ public class Doctor {
     @Column(name = "is_available")
     private Boolean isAvailable = true;
 
+    @Column(name = "pending_approval")
+    private Boolean pendingApproval = false;
+
     public Doctor() {}
 
     public Doctor(String name, String education, Integer experienceYears, DoctorCategory category) {
@@ -51,4 +54,7 @@ public class Doctor {
 
     public Boolean getIsAvailable() { return isAvailable == null || isAvailable; }
     public void setIsAvailable(Boolean isAvailable) { this.isAvailable = isAvailable; }
+
+    public Boolean getPendingApproval() { return pendingApproval != null && pendingApproval; }
+    public void setPendingApproval(Boolean pendingApproval) { this.pendingApproval = pendingApproval; }
 }

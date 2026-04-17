@@ -48,7 +48,7 @@ public class EquipmentSnapshotScheduler {
     @Autowired private PatientAdmissionRepository       admissionRepo;
     @Autowired private HolidayService                   holidayService;
 
-    private static final String CSV_PATH   = "c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan\\new_data.csv";
+    private static final String CSV_PATH = "new_data.csv"; // Will be relative to projectRoot
     private static final int    BATCH_SIZE = 50;   // Increased so you can observe row accumulation in the DB
 
     // TODO: change back to 10_800_000 (3 hours) for production
@@ -143,7 +143,21 @@ public class EquipmentSnapshotScheduler {
 
         List<EquipmentUsageSnapshot> rows = snapshotRepo.findAll();
 
-        try (PrintWriter pw = new PrintWriter(new FileWriter(CSV_PATH))) {
+        // Smart resolve path to CSV relative to the script location
+        String userDir = System.getProperty("user.dir");
+        java.io.File projectRoot = new java.io.File(userDir);
+        java.io.File csvFile = new java.io.File(projectRoot, CSV_PATH);
+
+        if (!new java.io.File(projectRoot, "train.py").exists()) {
+            // Check parent if not in current
+            java.io.File parent = projectRoot.getParentFile();
+            if (new java.io.File(parent, "train.py").exists()) {
+                projectRoot = parent;
+                csvFile = new java.io.File(projectRoot, CSV_PATH);
+            }
+        }
+
+        try (PrintWriter pw = new PrintWriter(new FileWriter(csvFile))) {
             // CSV header
             pw.println("equipment,date,recorded_at," +
                        "total_patients_last_day,total_patients_last_7_days," +
@@ -165,7 +179,7 @@ public class EquipmentSnapshotScheduler {
                 );
             }
 
-            System.out.println("[Snapshot] ✓ CSV saved  → " + CSV_PATH);
+            System.out.println("[Snapshot] ✓ CSV saved  → " + csvFile.getAbsolutePath());
         } catch (IOException e) {
             System.err.println("[Snapshot] ✗ CSV export failed: " + e.getMessage());
             return; // do NOT delete rows if export failed
@@ -185,9 +199,29 @@ public class EquipmentSnapshotScheduler {
     private void triggerPythonTraining() {
         System.out.println("[Snapshot] ► Triggering Python training ...");
         try {
-            ProcessBuilder pb = new ProcessBuilder("D:\\Python312\\python.exe", "c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan\\train.py");
+            // Smart resolve path to train.py
+            String userDir = System.getProperty("user.dir");
+            java.io.File scriptFile = new java.io.File(userDir, "train.py");
+            java.io.File projectRoot = new java.io.File(userDir);
+
+            if (!scriptFile.exists()) {
+                java.io.File parent = new java.io.File(userDir).getParentFile();
+                java.io.File fallback = new java.io.File(parent, "train.py");
+                if (fallback.exists()) {
+                    scriptFile = fallback;
+                    projectRoot = parent;
+                }
+            }
+
+            // Try common python paths or just "python"
+            String pythonPath = "python";
+            if (new java.io.File("C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python311\\python.exe").exists()) {
+                pythonPath = "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python311\\python.exe";
+            }
+
+            ProcessBuilder pb = new ProcessBuilder(pythonPath, scriptFile.getAbsolutePath());
             pb.redirectErrorStream(true);   // merge stderr into stdout
-            pb.directory(new java.io.File("c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan")); // working directory
+            pb.directory(projectRoot); // working directory
             Process process = pb.start();
 
             // Stream Python output to Spring Boot console in a background thread

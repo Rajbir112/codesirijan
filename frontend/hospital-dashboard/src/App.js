@@ -46,12 +46,8 @@ function App() {
             {/* ── Modern Navigation Bar ── */}
             <div className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem', borderBottom: '1px solid #E2E8F0', paddingBottom: '1.5rem' }}>
                 <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <div className="logo-icon" style={{ background: '#0066FF', color: 'white', width: '45px', height: '45px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '10px', fontSize: '1.5rem', fontWeight: 'bold' }}>
-                        C
-                    </div>
                     <div className="logo-text">
-                        <h1 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 700, color: '#1E293B', letterSpacing: '-0.5px' }}>CODESRIJAN</h1>
-                        <p style={{ margin: 0, fontSize: '0.75rem', color: '#64748B', fontWeight: 500, letterSpacing: '1px' }}>HOSPITAL MANAGEMENT</p>
+                        <h1 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 700, color: '#1E293B', letterSpacing: '1px' }}>HOSPITAL MANAGEMENT</h1>
                     </div>
                 </div>
 

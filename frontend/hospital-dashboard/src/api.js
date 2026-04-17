@@ -188,6 +188,30 @@ export const dischargePatient = async (id) => {
     return res.text();
 };
 
+export const fetchWaitingAdmissions = async () => {
+    const res = await fetch(`${ADM_API}/waiting`);
+    if (!res.ok) throw new Error('Failed to fetch waiting list');
+    return res.json();
+};
+
+export const approveDoctor = async (doctorId) => {
+    const res = await fetch(`${ADM_API}/approve-doctor/${doctorId}`, { method: 'POST' });
+    if (!res.ok) throw new Error('Failed to approve doctor');
+    return res.text();
+};
+
+export const forceAdmit = async (admissionId) => {
+    const res = await fetch(`${ADM_API}/force-admit/${admissionId}`, { method: 'POST' });
+    if (!res.ok) throw new Error('Failed to force admit');
+    return res.text();
+};
+
+export const clearWaitingQueue = async () => {
+    const res = await fetch(`${ADM_API}/clear-waiting`, { method: 'POST' });
+    if (!res.ok) throw new Error('Failed to clear waiting queue');
+    return res.text();
+};
+
 // ─── Machine Learning ─────────────────────────────────────────
 
 export const fetchEquipmentDemandForecast = async () => {

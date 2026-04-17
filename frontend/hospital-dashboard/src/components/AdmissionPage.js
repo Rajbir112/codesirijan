@@ -11,7 +11,12 @@ import {
     lockAdmission,
     fetchActiveAdmissions,
     dischargePatient,
-    fetchEquipmentDemandForecast
+    fetchEquipmentDemandForecast,
+    fetchWaitingAdmissions,
+    approveDoctor,
+    forceAdmit,
+    clearWaitingQueue,
+    fetchDoctorStats
 } from '../api';
 
 const HIGH_CARE = [
@@ -58,9 +63,11 @@ export default function AdmissionPage() {
     const [equipCats, setEquipCats] = useState([]);
     const [equipItems, setEquipItems] = useState([]);
     const [activeAdmissions, setActiveAdmissions] = useState([]);
+    const [waitingAdmissions, setWaitingAdmissions] = useState([]);
+    const [pendingDoctors, setPendingDoctors] = useState([]);
 
     const [sel, setSel] = useState({
-        patientName: '', illness: '',
+        patientName: '', illness: '', criticality: 5,
         roomType: null, allowsDoctorNurse: false,
         roomId: '', bedId: '',
         docCatId: '', doctorId: '',
@@ -90,15 +97,43 @@ export default function AdmissionPage() {
         }
     };
 
-    // Load room types on mount / refresh
-    useEffect(() => { loadRoomTypes(); loadActiveAdmissions(); }, [refresh]);
-
     const loadRoomTypes = async () => {
         try { setRoomTypes(await fetchAdmissionRoomTypes()); } catch (e) { console.error(e); }
     };
     const loadActiveAdmissions = async () => {
         try { setActiveAdmissions(await fetchActiveAdmissions()); } catch (e) { console.error(e); }
     };
+    const loadWaitingList = async () => {
+        try { setWaitingAdmissions(await fetchWaitingAdmissions()); } catch (e) { console.error(e); }
+    };
+    const loadPendingDoctors = async () => {
+        try {
+            const stats = await fetchDoctorStats();
+            const pending = [];
+            stats.forEach(cat => {
+                cat.doctors.forEach(d => {
+                    if (d.pendingApproval) pending.push({ ...d, category: cat.categoryName });
+                });
+            });
+            setPendingDoctors(pending);
+        } catch (e) { console.error(e); }
+    };
+
+    // Auto-refresh queue and pending status
+    useEffect(() => {
+        const timer = setInterval(() => {
+            loadWaitingList();
+            loadPendingDoctors();
+        }, 5000); // Check every 5s
+        return () => clearInterval(timer);
+    }, []);
+
+    useEffect(() => { 
+        loadRoomTypes(); 
+        loadActiveAdmissions(); 
+        loadWaitingList();
+        loadPendingDoctors();
+    }, [refresh]);
 
     const onRoomTypeChange = async (typeName, allowsDN) => {
         setSel({ patientName: sel.patientName, illness: sel.illness, roomType: typeName, allowsDoctorNurse: allowsDN, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipmentCount: '', equipmentSlots: [] });
@@ -179,16 +214,17 @@ export default function AdmissionPage() {
         if (!sel.patientName || !sel.bedId) return;
         setSubmitting(true); setMsg(null);
         try {
-            await lockAdmission({
+            const resText = await lockAdmission({
                 patientName: sel.patientName,
                 illness: sel.illness,
+                criticality: sel.criticality,
                 bedId: sel.bedId,
                 doctorId: sel.doctorId || null,
                 nurseIds: sel.nurseIds,
                 equipmentIds: (sel.equipmentSlots || []).map(s => s.itemId).filter(Boolean)
             });
-            setMsg({ type: 'success', text: `Patient "${sel.patientName}" admitted successfully!` });
-            setSel({ patientName: '', illness: '', roomType: null, allowsDoctorNurse: false, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipmentCount: '', equipmentSlots: [] });
+            setMsg({ type: 'success', text: resText });
+            setSel({ patientName: '', illness: '', criticality: 5, roomType: null, allowsDoctorNurse: false, roomId: '', bedId: '', docCatId: '', doctorId: '', nurseIds: [], equipmentCount: '', equipmentSlots: [] });
             setRooms([]); setBeds([]); setDocCats([]); setDoctors([]); setNurses([]); setEquipCats([]); setEquipItems([]);
             setRefresh(r => r + 1);
         } catch (err) {
@@ -204,6 +240,54 @@ export default function AdmissionPage() {
             await dischargePatient(id);
             setRefresh(r => r + 1);
         } catch (e) { alert('Discharge failed.'); }
+    };
+
+    const handleForceAdmit = async (id) => {
+        try {
+            await forceAdmit(id);
+            setMsg({ type: 'success', text: 'Patient forced to ACTIVE state!' });
+            loadWaitingList();
+            loadActiveAdmissions();
+        } catch (e) { 
+            setMsg({ type: 'danger', text: 'Force admit failed. Resources might still be busy.' });
+        }
+    };
+
+    const handleClearWaiting = async () => {
+        if (!window.confirm("Are you sure you want to clear the entire waiting queue? All reservations will be released.")) return;
+        try {
+            await clearWaitingQueue();
+            setMsg({ type: 'success', text: 'Waiting queue cleared!' });
+            loadWaitingList();
+        } catch (e) { alert('Failed to clear queue.'); }
+    };
+
+    const handleApproveDoctor = async (id, name) => {
+        try {
+            await approveDoctor(id);
+            setMsg({ type: 'success', text: `Dr. ${name} is now available and queue has been processed.` });
+            setRefresh(r => r + 1);
+        } catch (e) { alert('Approval failed.'); }
+    };
+
+    const isWaitlisted = () => {
+        // Bed waitlist: if no bed selected or selected bed is not available
+        const selBed = beds.find(b => b.id === Number(sel.bedId));
+        if (selBed && !selBed.isAvailable) return true;
+
+        // Doctor waitlist: if high care but no doctor selected or selected doctor is not available
+        if (isHighCare) {
+            const selDoc = doctors.find(d => d.id === Number(sel.doctorId));
+            if (!selDoc || !selDoc.isAvailable) return true;
+        }
+
+        // Equipment waitlist: if any equipment slot has an item with 0 availability
+        if (sel.equipmentSlots && sel.equipmentSlots.some(s => {
+            const item = s.items.find(i => i.id === Number(s.itemId));
+            return item && item.availableCount <= 0;
+        })) return true;
+
+        return false;
     };
 
     const isHighCare = HIGH_CARE.includes(sel.roomType);
@@ -238,7 +322,47 @@ export default function AdmissionPage() {
                     color: tab === 'forecast' ? '#fff' : '#64748B', border: tab === 'forecast' ? '1px solid #8B5CF6' : '1px solid #E2E8F0',
                     boxShadow: tab === 'forecast' ? '0 4px 12px rgba(139,92,246,0.2)' : 'none'
                 }}>🔮 Demand Forecast</button>
+                <button onClick={() => setTab('queue')} style={{
+                    padding: '0.65rem 1.5rem', borderRadius: '10px', fontWeight: 600, cursor: 'pointer', fontSize: '0.95rem',
+                    background: tab === 'queue' ? '#F59E0B' : '#FFFFFF',
+                    color: tab === 'queue' ? '#fff' : '#64748B', border: tab === 'queue' ? '1px solid #F59E0B' : '1px solid #E2E8F0',
+                    boxShadow: tab === 'queue' ? '0 4px 12px rgba(245,158,11,0.2)' : 'none',
+                    position: 'relative'
+                }}>
+                    📋 Priority Queue
+                    {waitingAdmissions.length > 0 && (
+                        <span style={{ marginLeft: '0.5rem', background: '#fff', color: '#F59E0B', borderRadius: '99px', padding: '2px 8px', fontSize: '0.78rem' }}>
+                            {waitingAdmissions.length}
+                        </span>
+                    )}
+                </button>
             </div>
+
+            {/* Doctor Approval Notifications */}
+            {pendingDoctors.length > 0 && (
+                <div style={{ marginBottom: '1.5rem' }}>
+                    {pendingDoctors.map(d => (
+                        <div key={d.id} style={{
+                            background: '#FFFBEB', border: '1px solid #FCD34D', borderRadius: '12px', padding: '1rem',
+                            display: 'flex', justifyContent: 'space-between', alignItems: 'center', boxShadow: '0 4px 12px rgba(245,158,11,0.1)',
+                            animation: 'slideDown 0.3s ease-out'
+                        }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                <div style={{ fontSize: '1.5rem' }}>👨‍⚕️</div>
+                                <div>
+                                    <div style={{ fontWeight: 700, color: '#92400E' }}>Dr. {d.name} is now free!</div>
+                                    <div style={{ fontSize: '0.85rem', color: '#B45309' }}>Specialty: {d.category} • Ready for re-assignment?</div>
+                                </div>
+                            </div>
+                            <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                <button onClick={() => handleApproveDoctor(d.id, d.name)} style={{
+                                    padding: '0.5rem 1rem', borderRadius: '8px', background: '#F59E0B', color: '#fff', border: 'none', fontWeight: 600, cursor: 'pointer'
+                                }}>Approve & Release to Queue</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
 
             {tab === 'admit' && (
                 <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '2rem' }}>
@@ -282,6 +406,23 @@ export default function AdmissionPage() {
                                     <input type="text" className="form-control" placeholder="e.g. Cardiac arrest"
                                         value={sel.illness} onChange={e => setSel(s => ({ ...s, illness: e.target.value }))} />
                                 </div>
+                                <div className="form-group" style={{ marginTop: '1rem', marginBottom: 0 }}>
+                                    <label style={{ color: '#1E293B', fontWeight: 500 }}>Patient Criticality (1-10) *</label>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                        <input type="range" min="1" max="10" step="1"
+                                            value={sel.criticality} onChange={e => setSel(s => ({ ...s, criticality: parseInt(e.target.value) }))}
+                                            style={{ flex: 1, accentColor: sel.criticality > 7 ? '#EF4444' : sel.criticality > 4 ? '#F59E0B' : '#10B981' }} />
+                                        <div style={{
+                                            width: '40px', height: '40px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                            fontWeight: 700, fontSize: '1.2rem', background: sel.criticality > 7 ? '#FEF2F2' : sel.criticality > 4 ? '#FFFBEB' : '#ECFDF5',
+                                            color: sel.criticality > 7 ? '#EF4444' : sel.criticality > 4 ? '#D97706' : '#10B981',
+                                            border: `1px solid ${sel.criticality > 7 ? '#FECACA' : sel.criticality > 4 ? '#FDE68A' : '#A7F3D0'}`
+                                        }}>
+                                            {sel.criticality}
+                                        </div>
+                                    </div>
+                                    <small style={{ color: '#64748B' }}>1 = Stable, 10 = Critical / Life Support Required</small>
+                                </div>
                             </div>
 
                             {/* Step 2: Room Type */}
@@ -297,7 +438,7 @@ export default function AdmissionPage() {
                                             <option value="">-- Choose Room Type --</option>
                                             {roomTypes.map(rt => (
                                                 <option key={rt.name} value={rt.name}>
-                                                    {rt.name}{rt.allowsDoctorNurse ? ' ⭐' : ''}
+                                                    {rt.name} {rt.vacantBeds <= 0 ? '(Waitlist)' : `(${rt.vacantBeds} free)`}
                                                 </option>
                                             ))}
                                         </select>
@@ -320,7 +461,7 @@ export default function AdmissionPage() {
                                             <option value="">-- Select Room --</option>
                                             {rooms.map(r => (
                                                 <option key={r.id} value={r.id}>
-                                                    {r.roomNumber} ({r.vacantBeds} bed{r.vacantBeds > 1 ? 's' : ''} free)
+                                                    Room {r.roomNumber} {r.vacantBeds <= 0 ? '(Waitlist)' : `(${r.vacantBeds} free)`}
                                                 </option>
                                             ))}
                                         </select>
@@ -336,7 +477,11 @@ export default function AdmissionPage() {
                                         <label>Select Vacant Bed</label>
                                         <select className="form-control" value={sel.bedId} onChange={e => onBedChange(e.target.value)} required>
                                             <option value="">-- Select Bed --</option>
-                                            {beds.map(b => <option key={b.id} value={b.id}>{b.bedNumber}</option>)}
+                                            {beds.map(b => (
+                                                <option key={b.id} value={b.id}>
+                                                    Bed {b.bedNumber} {!b.isAvailable ? '(Waitlist)' : ''}
+                                                </option>
+                                            ))}
                                         </select>
                                     </div>
                                 </div>
@@ -351,7 +496,11 @@ export default function AdmissionPage() {
                                             <label>Doctor Specialty / Category</label>
                                             <select className="form-control" value={sel.docCatId} onChange={e => onDocCatChange(e.target.value)}>
                                                 <option value="">-- Select Specialty --</option>
-                                                {docCats.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                                                {docCats.map(c => (
+                                                    <option key={c.id} value={c.id}>
+                                                        {c.name} {c.availableCount <= 0 ? '(Waitlist)' : `(${c.availableCount} free)`}
+                                                    </option>
+                                                ))}
                                             </select>
                                         </div>
                                         {sel.docCatId && (
@@ -359,7 +508,11 @@ export default function AdmissionPage() {
                                                 <label>Select Doctor</label>
                                                 <select className="form-control" value={sel.doctorId} onChange={e => setSel(s => ({ ...s, doctorId: e.target.value }))}>
                                                     <option value="">-- Select Doctor --</option>
-                                                    {doctors.map(d => <option key={d.id} value={d.id}>Dr. {d.name}</option>)}
+                                                    {doctors.map(d => (
+                                                        <option key={d.id} value={d.id}>
+                                                            Dr. {d.name} {!d.isAvailable ? '(Waitlist)' : ''}
+                                                        </option>
+                                                    ))}
                                                 </select>
                                                 {doctors.length === 0 && <small style={{ color: '#EF4444' }}>No available doctors in this category.</small>}
                                             </div>
@@ -421,7 +574,11 @@ export default function AdmissionPage() {
                                                             <label>Category</label>
                                                             <select className="form-control" value={slot.cat} onChange={e => onSlotCatChange(idx, e.target.value)}>
                                                                 <option value="">-- Category --</option>
-                                                                {equipCats.map(c => <option key={c} value={c}>{c}</option>)}
+                                                                {equipCats.map(c => (
+                                                                    <option key={c.name} value={c.name}>
+                                                                        {c.name} {c.availableCount <= 0 ? '(Waitlist)' : `(${c.availableCount} avail)`}
+                                                                    </option>
+                                                                ))}
                                                             </select>
                                                         </div>
                                                         <div className="form-group" style={{ marginBottom: 0 }}>
@@ -430,7 +587,7 @@ export default function AdmissionPage() {
                                                                 <option value="">-- Select --</option>
                                                                 {(slot.items || []).map(ei => (
                                                                     <option key={ei.id} value={ei.id}>
-                                                                        {ei.equipmentName} ({ei.availableCount} avail)
+                                                                        {ei.equipmentName} {ei.availableCount <= 0 ? '(Waitlist)' : `(${ei.availableCount} avail)`}
                                                                     </option>
                                                                 ))}
                                                             </select>
@@ -475,9 +632,20 @@ export default function AdmissionPage() {
                                             <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#1E293B' }}>{a.patientName}</div>
                                             {a.illness && <div style={{ fontSize: '0.88rem', color: '#64748B', marginTop: '2px' }}>{a.illness}</div>}
                                         </div>
-                                        <span style={{ background: '#FEF2F2', color: '#EF4444', border: '1px solid #FECACA', borderRadius: '99px', padding: '3px 10px', fontSize: '0.75rem', fontWeight: 600, flexShrink: 0 }}>
-                                            ACTIVE
-                                        </span>
+                                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
+                                            <span style={{ background: '#FEF2F2', color: '#EF4444', border: '1px solid #FECACA', borderRadius: '99px', padding: '3px 10px', fontSize: '0.75rem', fontWeight: 600, flexShrink: 0 }}>
+                                                ACTIVE
+                                            </span>
+                                            {a.criticality && (
+                                                <div style={{
+                                                    fontSize: '0.7rem', fontWeight: 700, padding: '2px 8px', borderRadius: '4px',
+                                                    background: a.criticality > 7 ? '#EF4444' : a.criticality > 4 ? '#F59E0B' : '#10B981',
+                                                    color: '#fff'
+                                                }}>
+                                                    CRITICALITY: {a.criticality}
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
 
                                     <div style={{ marginTop: '1rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
@@ -583,6 +751,104 @@ export default function AdmissionPage() {
                                     })}
                                 </tbody>
                             </table>
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {tab === 'queue' && (
+                <div>
+                    <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div>
+                            <h2 style={{ fontSize: '1.3rem', color: '#1E293B', margin: '0 0 0.5rem 0' }}>📋 Resource Priority Queue</h2>
+                            <p style={{ color: '#64748B', fontSize: '0.9rem', margin: 0 }}>
+                                Patients are ranked by <strong>Urgency (Criticality)</strong> and <strong>Requirement Efficiency</strong>. 
+                                Waitlisted patients receive <strong>+1 Criticality every hour</strong>.
+                            </p>
+                        </div>
+                        {waitingAdmissions.length > 0 && (
+                            <button 
+                                onClick={handleClearWaiting}
+                                style={{ background: '#FEE2E2', color: '#EF4444', border: '1px solid #FECACA', borderRadius: '8px', padding: '8px 16px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+                            >
+                                🗑️ Clear All Waiting
+                            </button>
+                        )}
+                    </div>
+
+                    {waitingAdmissions.length === 0 ? (
+                        <div className="card" style={{ textAlign: 'center', color: '#64748B', border: '1px dashed #E2E8F0', padding: '3rem' }}>
+                            <p style={{ fontSize: '3rem', margin: '0 0 1rem 0' }}>🍃</p>
+                            <p>The queue is currently empty. No patients are waiting for resources.</p>
+                        </div>
+                    ) : (
+                        <div style={{ display: 'grid', gap: '1rem' }}>
+                            {waitingAdmissions.map((a, idx) => (
+                                <div key={a.id} className="card" style={{ 
+                                    padding: '1.25rem', borderLeft: `6px solid ${a.criticality > 7 ? '#EF4444' : a.criticality > 4 ? '#F59E0B' : '#10B981'}`,
+                                    background: a.bedReserved ? 'rgba(245,158,11,0.05)' : '#fff'
+                                }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                        <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
+                                            <div style={{ 
+                                                width: '40px', height: '40px', borderRadius: '50%', background: '#F1F5F9', 
+                                                display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#64748B' 
+                                            }}>#{idx + 1}</div>
+                                            <div>
+                                                <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#1E293B' }}>{a.patientName}</div>
+                                                <div style={{ fontSize: '0.85rem', color: '#64748B' }}>
+                                                    Waiting since: {a.waitingSince ? new Date(a.waitingSince).toLocaleTimeString() : 'N/A'}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style={{ textAlign: 'right' }}>
+                                            <div style={{ fontSize: '0.75rem', color: '#94A3B8', fontWeight: 600, textTransform: 'uppercase' }}>Priority Score</div>
+                                            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1E293B' }}>{a.priorityScore ? a.priorityScore.toFixed(1) : '0.0'}</div>
+                                        </div>
+                                    </div>
+
+                                    <div style={{ marginTop: '1.25rem', display: 'flex', gap: '0.8rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                                        <div style={{ background: '#F8FAFC', padding: '0.5rem 1rem', borderRadius: '8px', border: '1px solid #E2E8F0', fontSize: '0.88rem' }}>
+                                            <span style={{ color: '#64748B' }}>Criticality:</span> <strong style={{ color: a.criticality > 7 ? '#EF4444' : '#1E293B' }}>{a.criticality || '5'}/10</strong>
+                                        </div>
+                                        
+                                        {a.bedReserved && (
+                                            <div style={{ background: '#FFFBEB', padding: '0.5rem 1rem', borderRadius: '8px', border: '1px solid #FDE68A', fontSize: '0.88rem', color: '#D97706', fontWeight: 600 }}>
+                                                🕒 Bed Reserved (Expires: {a.reservationExpiry ? new Date(a.reservationExpiry).toLocaleTimeString() : 'N/A'})
+                                            </div>
+                                        )}
+
+                                        {a.awaitingApproval && (
+                                            <div style={{ background: '#E0E7FF', padding: '0.5rem 1rem', borderRadius: '8px', border: '1px solid #C7D2FE', fontSize: '0.88rem', color: '#4338CA', fontWeight: 700, animation: 'pulse 2s infinite' }}>
+                                                👨‍⚕️ Awaiting Doctor Approval
+                                            </div>
+                                        )}
+
+                                        <button 
+                                            onClick={() => handleForceAdmit(a.id)}
+                                            style={{ marginLeft: 'auto', background: '#10B981', color: '#fff', border: 'none', borderRadius: '6px', padding: '6px 12px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer' }}
+                                        >
+                                            ⚡ Force Admit
+                                        </button>
+                                    </div>
+
+                                    {a.requirements && a.requirements.length > 0 && (
+                                        <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #F1F5F9' }}>
+                                            <div style={{ fontSize: '0.75rem', color: '#94A3B8', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.5rem' }}>Resource Requirements:</div>
+                                            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                                {a.requirements.map((req, i) => (
+                                                    <span key={i} style={{ 
+                                                        background: '#F1F5F9', color: '#475569', padding: '4px 10px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 500
+                                                    }}>
+                                                        {req}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
                         </div>
                     )}
                 </div>

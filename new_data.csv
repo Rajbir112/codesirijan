@@ -1,57 +1,57 @@
 equipment,date,recorded_at,total_patients_last_day,total_patients_last_7_days,total_usage_last_day,total_usage_last_7_days,value,is_holiday,is_weekend
-"Patient Monitors (ECG, BP, SpO2)",2026-04-15,2026-04-18T00:07:04.072109,2,9,0,0,0,false,false
-"Wheelchairs",2026-04-15,2026-04-18T00:07:04.072109,2,9,0,0,0,false,false
-"Stretchers",2026-04-15,2026-04-18T00:07:04.072109,2,9,0,0,0,false,false
-"MRI Machines",2026-04-15,2026-04-18T00:07:04.072109,2,9,0,0,2,false,false
-"Oxygen Cylinders / Central Oxygen Supply",2026-04-15,2026-04-18T00:07:04.072109,2,9,0,0,4,false,false
-"CT Scanners",2026-04-15,2026-04-18T00:07:04.072109,2,9,0,0,1,false,false
-"Ventilators",2026-04-15,2026-04-18T00:07:04.072109,2,9,2,9,8,false,false
-"Patient Monitors (ECG, BP, SpO2)",2026-04-15,2026-04-18T00:08:04.074431,2,9,0,0,0,false,false
-"Wheelchairs",2026-04-15,2026-04-18T00:08:04.074431,2,9,0,0,0,false,false
-"Stretchers",2026-04-15,2026-04-18T00:08:04.074431,2,9,0,0,0,false,false
-"MRI Machines",2026-04-15,2026-04-18T00:08:04.074431,2,9,0,0,2,false,false
-"Oxygen Cylinders / Central Oxygen Supply",2026-04-15,2026-04-18T00:08:04.074431,2,9,0,0,4,false,false
-"CT Scanners",2026-04-15,2026-04-18T00:08:04.074431,2,9,0,0,1,false,false
-"Ventilators",2026-04-15,2026-04-18T00:08:04.074431,2,9,2,9,8,false,false
-"Patient Monitors (ECG, BP, SpO2)",2026-04-15,2026-04-18T00:09:04.108685,2,9,0,0,0,false,false
-"Wheelchairs",2026-04-15,2026-04-18T00:09:04.108685,2,9,0,0,0,false,false
-"Stretchers",2026-04-15,2026-04-18T00:09:04.108685,2,9,0,0,0,false,false
-"MRI Machines",2026-04-15,2026-04-18T00:09:04.108685,2,9,0,0,2,false,false
-"Oxygen Cylinders / Central Oxygen Supply",2026-04-15,2026-04-18T00:09:04.108685,2,9,0,0,4,false,false
-"CT Scanners",2026-04-15,2026-04-18T00:09:04.108685,2,9,0,0,1,false,false
-"Ventilators",2026-04-15,2026-04-18T00:09:04.108685,2,9,2,9,8,false,false
-"Patient Monitors (ECG, BP, SpO2)",2026-04-15,2026-04-18T00:10:04.064752,2,9,0,0,0,false,false
-"Wheelchairs",2026-04-15,2026-04-18T00:10:04.064752,2,9,0,0,0,false,false
-"Stretchers",2026-04-15,2026-04-18T00:10:04.064752,2,9,0,0,0,false,false
-"MRI Machines",2026-04-15,2026-04-18T00:10:04.064752,2,9,0,0,2,false,false
-"Oxygen Cylinders / Central Oxygen Supply",2026-04-15,2026-04-18T00:10:04.064752,2,9,0,0,4,false,false
-"CT Scanners",2026-04-15,2026-04-18T00:10:04.064752,2,9,0,0,1,false,false
-"Ventilators",2026-04-15,2026-04-18T00:10:04.064752,2,9,2,9,8,false,false
-"Patient Monitors (ECG, BP, SpO2)",2026-04-15,2026-04-18T00:11:04.064693,2,9,0,0,0,false,false
-"Wheelchairs",2026-04-15,2026-04-18T00:11:04.064693,2,9,0,0,0,false,false
-"Stretchers",2026-04-15,2026-04-18T00:11:04.064693,2,9,0,0,0,false,false
-"MRI Machines",2026-04-15,2026-04-18T00:11:04.064693,2,9,0,0,2,false,false
-"Oxygen Cylinders / Central Oxygen Supply",2026-04-15,2026-04-18T00:11:04.064693,2,9,0,0,4,false,false
-"CT Scanners",2026-04-15,2026-04-18T00:11:04.064693,2,9,0,0,1,false,false
-"Ventilators",2026-04-15,2026-04-18T00:11:04.064693,2,9,2,9,8,false,false
-"Patient Monitors (ECG, BP, SpO2)",2026-04-15,2026-04-18T00:12:04.064872,2,9,0,0,0,false,false
-"Wheelchairs",2026-04-15,2026-04-18T00:12:04.064872,2,9,0,0,0,false,false
-"Stretchers",2026-04-15,2026-04-18T00:12:04.064872,2,9,0,0,0,false,false
-"MRI Machines",2026-04-15,2026-04-18T00:12:04.064872,2,9,0,0,2,false,false
-"Oxygen Cylinders / Central Oxygen Supply",2026-04-15,2026-04-18T00:12:04.064872,2,9,0,0,4,false,false
-"CT Scanners",2026-04-15,2026-04-18T00:12:04.064872,2,9,0,0,1,false,false
-"Ventilators",2026-04-15,2026-04-18T00:12:04.064872,2,9,2,9,8,false,false
-"Patient Monitors (ECG, BP, SpO2)",2026-04-15,2026-04-18T00:13:04.064584,2,9,0,0,0,false,false
-"Wheelchairs",2026-04-15,2026-04-18T00:13:04.064584,2,9,0,0,0,false,false
-"Stretchers",2026-04-15,2026-04-18T00:13:04.064584,2,9,0,0,0,false,false
-"MRI Machines",2026-04-15,2026-04-18T00:13:04.064584,2,9,0,0,2,false,false
-"Oxygen Cylinders / Central Oxygen Supply",2026-04-15,2026-04-18T00:13:04.064584,2,9,0,0,4,false,false
-"CT Scanners",2026-04-15,2026-04-18T00:13:04.064584,2,9,0,0,1,false,false
-"Ventilators",2026-04-15,2026-04-18T00:13:04.064584,2,9,2,9,8,false,false
-"Patient Monitors (ECG, BP, SpO2)",2026-04-15,2026-04-18T00:14:04.066780,2,9,0,0,0,false,false
-"Wheelchairs",2026-04-15,2026-04-18T00:14:04.066780,2,9,0,0,0,false,false
-"Stretchers",2026-04-15,2026-04-18T00:14:04.066780,2,9,0,0,0,false,false
-"MRI Machines",2026-04-15,2026-04-18T00:14:04.066780,2,9,0,0,2,false,false
-"Oxygen Cylinders / Central Oxygen Supply",2026-04-15,2026-04-18T00:14:04.066780,2,9,0,0,4,false,false
-"CT Scanners",2026-04-15,2026-04-18T00:14:04.066780,2,9,0,0,1,false,false
-"Ventilators",2026-04-15,2026-04-18T00:14:04.066780,2,9,2,9,8,false,false
+"Electrosurgical Units (Cautery)",2026-04-15,2026-04-18T03:12:36.124971,0,0,0,0,1,false,false
+"Stretchers",2026-04-15,2026-04-18T03:12:36.124971,0,0,0,0,3,false,false
+"Wheelchairs",2026-04-15,2026-04-18T03:12:36.124971,0,0,0,0,7,false,false
+"CT Scanners",2026-04-15,2026-04-18T03:12:36.124971,0,0,0,0,2,false,false
+"Crash Carts",2026-04-15,2026-04-18T03:12:36.124971,0,0,0,0,1,false,false
+"Defibrillators",2026-04-15,2026-04-18T03:12:36.124971,0,0,0,0,1,false,false
+"Operation Tables",2026-04-15,2026-04-18T03:12:36.124971,0,0,0,0,1,false,false
+"Electrosurgical Units (Cautery)",2026-04-15,2026-04-18T03:13:36.126660,0,0,0,0,1,false,false
+"Stretchers",2026-04-15,2026-04-18T03:13:36.126660,0,0,0,0,3,false,false
+"Wheelchairs",2026-04-15,2026-04-18T03:13:36.126660,0,0,0,0,7,false,false
+"CT Scanners",2026-04-15,2026-04-18T03:13:36.126660,0,0,0,0,2,false,false
+"Crash Carts",2026-04-15,2026-04-18T03:13:36.126660,0,0,0,0,1,false,false
+"Defibrillators",2026-04-15,2026-04-18T03:13:36.126660,0,0,0,0,1,false,false
+"Operation Tables",2026-04-15,2026-04-18T03:13:36.126660,0,0,0,0,1,false,false
+"Electrosurgical Units (Cautery)",2026-04-15,2026-04-18T03:14:36.118656,0,0,0,0,1,false,false
+"Stretchers",2026-04-15,2026-04-18T03:14:36.118656,0,0,0,0,3,false,false
+"Wheelchairs",2026-04-15,2026-04-18T03:14:36.118656,0,0,0,0,7,false,false
+"CT Scanners",2026-04-15,2026-04-18T03:14:36.118656,0,0,0,0,2,false,false
+"Crash Carts",2026-04-15,2026-04-18T03:14:36.118656,0,0,0,0,1,false,false
+"Defibrillators",2026-04-15,2026-04-18T03:14:36.118656,0,0,0,0,1,false,false
+"Operation Tables",2026-04-15,2026-04-18T03:14:36.118656,0,0,0,0,1,false,false
+"Electrosurgical Units (Cautery)",2026-04-15,2026-04-18T03:15:36.121969,0,0,0,0,1,false,false
+"Stretchers",2026-04-15,2026-04-18T03:15:36.121969,0,0,0,0,3,false,false
+"Wheelchairs",2026-04-15,2026-04-18T03:15:36.121969,0,0,0,0,7,false,false
+"CT Scanners",2026-04-15,2026-04-18T03:15:36.121969,0,0,0,0,2,false,false
+"Crash Carts",2026-04-15,2026-04-18T03:15:36.121969,0,0,0,0,1,false,false
+"Defibrillators",2026-04-15,2026-04-18T03:15:36.121969,0,0,0,0,1,false,false
+"Operation Tables",2026-04-15,2026-04-18T03:15:36.121969,0,0,0,0,1,false,false
+"Electrosurgical Units (Cautery)",2026-04-15,2026-04-18T03:16:36.129655,0,0,0,0,1,false,false
+"Stretchers",2026-04-15,2026-04-18T03:16:36.129655,0,0,0,0,3,false,false
+"Wheelchairs",2026-04-15,2026-04-18T03:16:36.129655,0,0,0,0,7,false,false
+"CT Scanners",2026-04-15,2026-04-18T03:16:36.129655,0,0,0,0,2,false,false
+"Crash Carts",2026-04-15,2026-04-18T03:16:36.129655,0,0,0,0,1,false,false
+"Defibrillators",2026-04-15,2026-04-18T03:16:36.129655,0,0,0,0,1,false,false
+"Operation Tables",2026-04-15,2026-04-18T03:16:36.129655,0,0,0,0,1,false,false
+"Electrosurgical Units (Cautery)",2026-04-15,2026-04-18T03:17:36.122799,0,0,0,0,1,false,false
+"Stretchers",2026-04-15,2026-04-18T03:17:36.122799,0,0,0,0,3,false,false
+"Wheelchairs",2026-04-15,2026-04-18T03:17:36.122799,0,0,0,0,7,false,false
+"CT Scanners",2026-04-15,2026-04-18T03:17:36.122799,0,0,0,0,2,false,false
+"Crash Carts",2026-04-15,2026-04-18T03:17:36.122799,0,0,0,0,1,false,false
+"Defibrillators",2026-04-15,2026-04-18T03:17:36.122799,0,0,0,0,1,false,false
+"Operation Tables",2026-04-15,2026-04-18T03:17:36.122799,0,0,0,0,1,false,false
+"Electrosurgical Units (Cautery)",2026-04-15,2026-04-18T03:18:36.115770,0,0,0,0,1,false,false
+"Stretchers",2026-04-15,2026-04-18T03:18:36.115770,0,0,0,0,3,false,false
+"Wheelchairs",2026-04-15,2026-04-18T03:18:36.115770,0,0,0,0,7,false,false
+"CT Scanners",2026-04-15,2026-04-18T03:18:36.115770,0,0,0,0,2,false,false
+"Crash Carts",2026-04-15,2026-04-18T03:18:36.115770,0,0,0,0,1,false,false
+"Defibrillators",2026-04-15,2026-04-18T03:18:36.115770,0,0,0,0,1,false,false
+"Operation Tables",2026-04-15,2026-04-18T03:18:36.115770,0,0,0,0,1,false,false
+"Electrosurgical Units (Cautery)",2026-04-15,2026-04-18T03:19:36.127109,0,0,0,0,1,false,false
+"Stretchers",2026-04-15,2026-04-18T03:19:36.127109,0,0,0,0,3,false,false
+"Wheelchairs",2026-04-15,2026-04-18T03:19:36.127109,0,0,0,0,7,false,false
+"CT Scanners",2026-04-15,2026-04-18T03:19:36.127109,0,0,0,0,2,false,false
+"Crash Carts",2026-04-15,2026-04-18T03:19:36.127109,0,0,0,0,1,false,false
+"Defibrillators",2026-04-15,2026-04-18T03:19:36.127109,0,0,0,0,1,false,false
+"Operation Tables",2026-04-15,2026-04-18T03:19:36.127109,0,0,0,0,1,false,false

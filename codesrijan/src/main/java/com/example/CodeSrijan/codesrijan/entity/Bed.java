@@ -20,6 +20,9 @@ public class Bed {
     @Column(name = "is_available")
     private Boolean isAvailable = true;
 
+    @Column(name = "is_reserved")
+    private Boolean isReserved = false;
+
     public Bed() {}
 
     public Bed(String bedNumber, Room room) {
@@ -38,4 +41,7 @@ public class Bed {
 
     public Boolean getIsAvailable() { return isAvailable == null || isAvailable; }
     public void setIsAvailable(Boolean isAvailable) { this.isAvailable = isAvailable; }
+
+    public Boolean getIsReserved() { return isReserved != null && isReserved; }
+    public void setIsReserved(Boolean isReserved) { this.isReserved = isReserved; }
 }

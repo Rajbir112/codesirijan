@@ -30,7 +30,11 @@ public class NurseService {
     @Transactional
     public void deleteNurse(Long id) {
         Nurse nurse = nurseRepository.findById(id).orElseThrow(() -> new RuntimeException("Nurse not found"));
-        if (Boolean.FALSE.equals(nurse.getIsAvailable())) {
+        
+        // Verify if there is an ACTUAL active admission in the database
+        boolean hasActiveAdmission = admissionRepository.existsByNurses_IdAndStatus(id, "ACTIVE");
+        
+        if (hasActiveAdmission) {
              throw new RuntimeException("Cannot delete nurse assigned to an active admission.");
         }
         

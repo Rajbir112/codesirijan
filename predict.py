@@ -22,7 +22,7 @@ def main():
         print(json.dumps([{"error": "Invalid JSON input correctly: " + str(e)}]))
         sys.exit(0)
 
-    BASE_DIR = r"c:\Users\USER\OneDrive\Desktop\codesirijan"
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     MODEL_FILE = os.path.join(BASE_DIR, "rf_equipment_model.pkl")
     ENCODER_FILE = os.path.join(BASE_DIR, "equipment_encoder.pkl")
     SCALER_FILE = os.path.join(BASE_DIR, "feature_scaler.pkl")

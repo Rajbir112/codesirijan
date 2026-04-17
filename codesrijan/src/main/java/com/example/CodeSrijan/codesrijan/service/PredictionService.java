@@ -77,8 +77,29 @@ public class PredictionService {
             ObjectMapper mapper = new ObjectMapper();
             String jsonInput = mapper.writeValueAsString(requests);
 
-            ProcessBuilder pb = new ProcessBuilder("D:\\Python312\\python.exe", "c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan\\predict.py");
-            pb.directory(new java.io.File("c:\\Users\\USER\\OneDrive\\Desktop\\codesirijan"));
+            // Smart resolve path to predict.py
+            String userDir = System.getProperty("user.dir");
+            java.io.File scriptFile = new java.io.File(userDir, "predict.py");
+            java.io.File projectRoot = new java.io.File(userDir);
+
+            if (!scriptFile.exists()) {
+                // If not in current dir, check parent (common if running from backend subfolder)
+                java.io.File parent = new java.io.File(userDir).getParentFile();
+                java.io.File fallback = new java.io.File(parent, "predict.py");
+                if (fallback.exists()) {
+                    scriptFile = fallback;
+                    projectRoot = parent;
+                }
+            }
+            
+            // Try common python paths or just "python"
+            String pythonPath = "python"; 
+            if (new java.io.File("C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python311\\python.exe").exists()) {
+                pythonPath = "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python311\\python.exe";
+            }
+
+            ProcessBuilder pb = new ProcessBuilder(pythonPath, scriptFile.getAbsolutePath());
+            pb.directory(projectRoot);
             Process process = pb.start();
 
             try (java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(process.getOutputStream())) {

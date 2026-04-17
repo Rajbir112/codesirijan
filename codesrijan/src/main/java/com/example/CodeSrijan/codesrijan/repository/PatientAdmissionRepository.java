@@ -15,6 +15,10 @@ public interface PatientAdmissionRepository extends JpaRepository<PatientAdmissi
     
     List<PatientAdmission> findByNurses_Id(Long nurseId);
 
+    boolean existsByDoctorIdAndStatus(Long doctorId, String status);
+    
+    boolean existsByNurses_IdAndStatus(Long nurseId, String status);
+
     /** Count ALL admissions with createdAt in [start, end] */
     @Query("SELECT COUNT(pa) FROM PatientAdmission pa WHERE pa.createdAt BETWEEN :start AND :end")
     long countByCreatedAtBetween(@Param("start") LocalDateTime start,

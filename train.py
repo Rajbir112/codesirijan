@@ -11,7 +11,7 @@ print("  Hospital Equipment Model - Auto Training")
 print("=" * 50)
 
 # ── Paths ──────────────────────────────────────────
-BASE_DIR       = r"c:\Users\USER\OneDrive\Desktop\codesirijan"
+BASE_DIR       = os.path.dirname(os.path.abspath(__file__))
 NEW_DATA_FILE  = os.path.join(BASE_DIR, "new_data.csv")
 MASTER_DATASET = os.path.join(BASE_DIR, "master_dataset.csv")
 MODEL_FILE     = os.path.join(BASE_DIR, "rf_equipment_model.pkl")

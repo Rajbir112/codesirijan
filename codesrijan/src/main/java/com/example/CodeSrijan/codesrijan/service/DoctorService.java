@@ -39,7 +39,11 @@ public class DoctorService {
     @Transactional
     public void deleteDoctor(Long id) {
         Doctor doc = doctorRepository.findById(id).orElseThrow(() -> new RuntimeException("Doctor not found"));
-        if (Boolean.FALSE.equals(doc.getIsAvailable())) {
+        
+        // Verify if there is an ACTUAL active admission in the database
+        boolean hasActiveAdmission = admissionRepository.existsByDoctorIdAndStatus(id, "ACTIVE");
+        
+        if (hasActiveAdmission) {
              throw new RuntimeException("Cannot delete doctor assigned to an active admission.");
         }
         
