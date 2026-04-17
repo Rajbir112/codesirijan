@@ -224,7 +224,7 @@ export default function EquipmentInventory() {
                                     );
 
                                     return (
-                                        <div key={idx} style={{ display: 'grid', gridTemplateColumns: '1fr 90px 32px', gap: '0.5rem', alignItems: 'center' }}>
+                                        <div key={idx} style={{ display: 'grid', gridTemplateColumns: '1fr 80px 100px 32px', gap: '0.5rem', alignItems: 'center' }}>
                                             <select
                                                 className="form-control"
                                                 style={{ padding: '0.5rem 0.75rem', fontSize: '0.85rem' }}
@@ -240,11 +240,44 @@ export default function EquipmentInventory() {
                                                 type="number"
                                                 className="form-control"
                                                 min="0"
-                                                placeholder="Count"
-                                                style={{ padding: '0.5rem 0.5rem', fontSize: '0.85rem', textAlign: 'center' }}
+                                                placeholder="Total"
+                                                title="Total Amount"
+                                                style={{ padding: '0.5rem 0.2rem', fontSize: '0.85rem', textAlign: 'center' }}
                                                 value={row.count}
                                                 onChange={e => updateRow(cat.key, idx, 'count', e.target.value)}
                                             />
+                                            <div style={{ display: 'flex', alignItems: 'center', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden' }}>
+                                                <input
+                                                    type="number"
+                                                    placeholder="Add"
+                                                    title="Amount to add/subtract"
+                                                    style={{ width: '60px', border: 'none', background: 'transparent', color: '#e2e8f0', padding: '0.5rem', textAlign: 'center', fontSize: '0.85rem', outline: 'none' }}
+                                                    value={row.delta !== undefined ? row.delta : ''}
+                                                    onChange={e => updateRow(cat.key, idx, 'delta', e.target.value)}
+                                                    onKeyDown={e => {
+                                                        if (e.key === 'Enter') {
+                                                            e.preventDefault();
+                                                            const current = parseInt(row.count) || 0;
+                                                            const delta = parseInt(row.delta) || 0;
+                                                            updateRow(cat.key, idx, 'count', Math.max(0, current + delta));
+                                                            updateRow(cat.key, idx, 'delta', '');
+                                                        }
+                                                    }}
+                                                />
+                                                <button
+                                                    title="Apply Update"
+                                                    style={{ width: '40px', border: 'none', borderLeft: '1px solid rgba(255,255,255,0.1)', background: 'rgba(59,130,246,0.15)', color: '#60a5fa', cursor: 'pointer', padding: '0.5rem', fontSize: '0.9rem', fontWeight: 'bold' }}
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        const current = parseInt(row.count) || 0;
+                                                        const delta = parseInt(row.delta) || 0;
+                                                        updateRow(cat.key, idx, 'count', Math.max(0, current + delta));
+                                                        updateRow(cat.key, idx, 'delta', '');
+                                                    }}
+                                                >
+                                                    +
+                                                </button>
+                                            </div>
                                             <button
                                                 onClick={() => removeRow(cat.key, idx)}
                                                 disabled={rows.length === 1 && !row.equipmentName}
