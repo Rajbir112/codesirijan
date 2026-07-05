@@ -37,7 +37,7 @@ const InventoryDashboard = ({ refreshTrigger }) => {
       lineHeight: '1.8'
     }}
   >
-    <h3>🚀 Starting Backend Server...</h3>
+    <h3> Starting Backend Server...</h3>
     <p>
       Please wait while the Render backend wakes up.
     </p>
