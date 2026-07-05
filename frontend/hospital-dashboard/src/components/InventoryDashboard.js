@@ -29,7 +29,22 @@ const InventoryDashboard = ({ refreshTrigger }) => {
       <h2 className="card-title">Hospital Inventory</h2>
       
       {loading ? (
-        <p style={{color: 'var(--text-muted)'}}>Loading inventory...</p>
+        <div
+    style={{
+      color: 'var(--text-muted)',
+      textAlign: 'center',
+      padding: '2rem',
+      lineHeight: '1.8'
+    }}
+  >
+    <h3>🚀 Starting Backend Server...</h3>
+    <p>
+      Please wait while the Render backend wakes up.
+    </p>
+    <p>
+      This may take <strong>30–60 seconds</strong> on the first request.
+    </p>
+  </div>
       ) : inventory.length === 0 ? (
         <p style={{color: 'var(--text-muted)'}}>No capacity deployed yet. Use the form to deploy resources.</p>
       ) : (
