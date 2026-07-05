@@ -81,4 +81,4 @@ If you found this project interesting, consider giving it a ⭐ on GitHub!
 💭 Final Thought
 
 This system doesn’t just manage resources —
-it predicts demand and makes intelligent, real-time decisions that can directly impact patient outcomes.
+it predicts demand and makes intelligent, real-time decisions that can directly impact patient outcomes. Thank youuuu.
